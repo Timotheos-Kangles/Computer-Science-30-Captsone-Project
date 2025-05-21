@@ -3,6 +3,8 @@
  needed features, desires, and other roadmaps.
 
  ## Game Systems
+
+ Must have:
  - Map/Planet Picker System,
  - Saving Data;
  - - Currency,
@@ -18,3 +20,6 @@
  - - Pirates
  - - - Chance to spawn increases based on how much currency you have, and planet.
  - - - You have to pick between fighting, bribing the pirates off, Run Away
+
+Desired to have:
+- etc
