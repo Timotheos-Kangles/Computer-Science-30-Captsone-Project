@@ -5,5 +5,7 @@
         "Game": "app",
         "Classes": "Controller",
         "Utils": "Utils",
+        "Initialize Game": "tool",
+        "Data Controllers": "Controller",
     }
 }
