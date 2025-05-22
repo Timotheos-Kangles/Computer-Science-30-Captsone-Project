@@ -7,5 +7,9 @@
         "Utils": "Utils",
         "Initialize Game": "tool",
         "Data Controllers": "Controller",
+        "Shop System(s)": "Store",
+        "Planet Data": "Moon",
+        "Data Files": "File",
+        "Game System(s)":"App",
     }
 }
