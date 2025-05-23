@@ -2,9 +2,9 @@ import Earth_Data as Edata
 import Tools_Menu as Tmenu
 import Stroage_menu as Smenu
 shop_menu_options = {
-    1: 'Buy tools',
-    2: 'Buy storage',
-    3: 'Buy weapons'
+    1: 'Buy tools', # Pickaxe, Drill
+    2: 'Buy storage', # 
+    3: 'Buy weapons' # Weapons for attack/defense
 }
 
 def shop_menu(planet):
