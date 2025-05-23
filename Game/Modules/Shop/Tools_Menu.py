@@ -1,3 +1,4 @@
+import Game.Data.Data_Files.Player_Data as Player
 Tool_Shop_Options = {
     "Earth": {
         "Tool1": {
@@ -14,12 +15,18 @@ Tool_Shop_Options = {
         }
     }
 }
+
+# USE python -m Game.Modules.Shop.Tools_Menu TO GET IMPORT TO WORK!!!
+
 spacer = "-------------------------------------------------"
 player_money = 1000
 
-#def fetch_shop_menu():
-    #if player.planet == "Earth":
-    #    Tool_Shop_Menu("Earth")
+# Uncomment once importing is fixed
+def fetch_shop_menu():
+    if Player.Data["Planet"] == "Earth":
+        Tool_Shop_Menu("Earth")
+    elif Player.Data["Planet"] == "Mars":
+        Tool_Shop_Menu("Mars")
 
     
 def Tool_Shop_Menu(Planet):
@@ -45,14 +52,16 @@ def Tool_Shop_Menu(Planet):
         else:
             print("Purchase cancelled.")
 
+
+# Uncomment conditionals once importing is fixed
 def purchase_tool(tool, price):
     global player_money
-    # Condtional Statements
-    if player_money >= price:
-        print(f"You have purchased {tool} for {price} money.")
-        player_money -= price
-        print(player_money)
-    elif player_money < price:
-        print("You do not have enough money to purchase this tool.")
-        print(f"You need {price - player_money} more money.")
+    #if pdata["Currency"]>= price:
+    #    print(f"You have purchased {tool} for {price} money.")
+    #    player_money -= price
+    #    print(player_money)
+    #elif pdata["Currency"]> < price:
+    #    print("You do not have enough money to purchase this tool.")
+    #    print(f"You need {price - player_money} more money.")
 
+fetch_shop_menu()
