@@ -1,9 +1,3 @@
-import sys
-from pathlib import Path
-
-root_dir = Path(__file__).parent.parent.parent.parent
-sys.path.append(str(root_dir))
-
 # Import Others
 import Game.Utils.Util_Variables as UtilVars
 
@@ -16,35 +10,34 @@ import Game.Data.Data_Files.Planet_Data.Mars_Data as MarsData
 import Game.Controllers.Player_Controller as PlayerController
 
 
-#  python -m Game.Modules.Shop.Tools_Menu 
-
+#  python -m Game.Modules.Shop.weapons_Menu 
     
-def tool_shop_menu(Planet, items):
-    print(f"Welcome to the {Planet} Tool Shop!")
-    print("Here are the available tools:")
+def tool_shop_menu(Planet, weapons):
+    print(f"Welcome to the {Planet} Weapon Shop!")
+    print("Here are the available Weapons!:")
     print(UtilVars.spacer) 
 
-    for index, category in enumerate(items.keys(), 1):
+    for index, category in enumerate(weapons.keys(), 1):
         print(f"{index} | {category}")
     print(UtilVars.spacer)
     choice = int(input("Please select a category (1, 2, 3): "))
     
-    if choice in range(1, len(items) + 1):
-        selected_category = list(items.keys())[choice - 1]
+    if choice in range(1, len(weapons) + 1):
+        selected_category = list(weapons.keys())[choice - 1]
         print(f"\nAvailable {selected_category}:")
-        for index, item in enumerate(items[selected_category].keys(), 1):
-            print(f"{index} | {item}")
+        for index, weapon in enumerate(weapons[selected_category].keys(), 1):
+            print(f"{index} | {weapon}")
         
-        tool_choice = int(input("Select a tool: "))
-        if tool_choice in range(1, len(items[selected_category]) + 1):
-            selected_tool = list(items[selected_category].keys())[tool_choice - 1]
-            tool_data = items[selected_category][selected_tool]
+        weapon_choice = int(input("Select a weapon to purchase: "))
+        if weapon_choice in range(1, len(weapons[selected_category]) + 1):
+            selected_weapon = list(weapons[selected_category].keys())[weapon_choice - 1]
+            weapon_data = weapons[selected_category][selected_weapon]
             print(UtilVars.spacer)
-            print(f"Price: {tool_data['Buy Price']}")
-            print(f"Description: {tool_data['Description']}")
+            print(f"Price: {weapon_data['Buy Price']}")
+            print(f"Description: {weapon_data['Description']}")
             confirm = input("Would you like to buy this tool? (y/n): ").lower()
             if confirm == 'y':
-                purchase_tool(selected_tool, tool_data['Buy Price'])
+                purchase_tool(selected_weapon, weapon_data['Buy Price'])
             else:
                 print("Purchase cancelled.")
         else:
