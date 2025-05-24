@@ -8,9 +8,6 @@ import Game.Data.Data_Files.Planet_Data.Mars_Data as MarsData
 
 # Import Controllers
 import Game.Controllers.Player_Controller as PlayerController
-
-
-#  python -m Game.Modules.Shop.weapons_Menu 
     
 def tool_shop_menu(Planet, weapons):
     print(f"Welcome to the {Planet} Weapon Shop!")

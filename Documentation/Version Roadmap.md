@@ -3,14 +3,14 @@
  roadmap for how features will progress throughout time.
 
  ## Version 1
- - initialize game (name, etc)
- - Tile System
+ - initialize game (name, etc) -- Complete
+ - Tile System - Working on Tmr
  - Planet traveling
  - Mining System
 
   ## Version 2
- - Shop System
- - Furnace System  
+ - Shop System - Complete
+ - Furnace System  - Complete
  - Feature
 
   ## Version 3

@@ -39,7 +39,6 @@ def shop_menu(planet, planet_tools, planet_weapons):
         pass
     if choice == 3:
         WeaponShop.tool_shop_menu(planet, planet_weapons)
-        # weapons
 
 
 
