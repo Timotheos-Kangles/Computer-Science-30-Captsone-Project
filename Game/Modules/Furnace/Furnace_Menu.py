@@ -15,9 +15,42 @@ import Game.Data.Data_Files.Ore_Data as OreData
 menu_options = {
     1: 'Smelt Ore',
 }
-def furnace_menu(Planet):
+
+def smelt_ore(ore, amount):
+    # Remove space and combine words for matching OreData variable names
+    ore_var_name = ore.replace(" ", "")
+    
+    if ore in Player.Data["Inventory"]["Ores"]:
+        if Player.Data["Inventory"]["Ores"][ore]["Amount"] >= amount:
+            ore_data = getattr(OreData, ore_var_name)
+            if ore_data:
+                smelting_time = ore_data["Smelting Time"]
+                smelting_ratio = ore_data["Smelting Ratio"]
+                smelting_yield = ore_data["Smelting Yield"]
+                bar_name = list(smelting_yield.keys())[0]
+                bars_produced = amount // smelting_ratio
+
+                # Update inventory
+                Player.Data["Inventory"]["Ores"][ore]["Amount"] -= amount
+                Player.Data["Inventory"]["Bars"][bar_name]["Amount"] += bars_produced
+
+                # Print progress
+                print(UtilVars.spacer)
+                print(f"Smelting {amount} of {ore}...")
+                print(f"Smelted {amount} of {ore} into {bars_produced} {bar_name}(s).")
+                print(f"Smelting took {smelting_time} seconds.")
+            else:
+                print(f"{ore} data not found in ore database.")
+        else:
+            current_amount = Player.Data["Inventory"]["Ores"][ore]["Amount"]
+            print(f"Not enough {ore}. You have {current_amount} but need {amount}.")
+    else:
+        print(f"{ore} is not in your inventory.")
     print(UtilVars.spacer)
-    print(f"Welcome to the {Planet} Furnace!")
+
+def furnace_menu():
+    print(UtilVars.spacer)
+    print(f"Welcome to the Furnace!")
     print("Here are the available Options:")
     print(UtilVars.spacer)
 
@@ -39,23 +72,5 @@ def furnace_menu(Planet):
 
 furnace_menu("Earth")  # Example call to the furnace menu
 
-def smelt_ore(ore, amount):
-    print(f"Smelting {amount} of {ore}...")
-    if ore in Player.Data["Inventory"]["Ores"]:
-        if Player.Data["Inventory"]["Ores"][ore]["Amount"] >= amount:
-            Player.Data["Inventory"]["Ores"]["Amount"] -= amount
-            print(f"Smelting {amount} of {ore}...")
-            if ore in OreData.Ore_Data:
-                smelting_time = OreData.Ore_Data[ore]["Smelting Time"]
-                smelting_ratio = OreData.Ore_Data[ore]["Smelting Ratio"]
-                smelting_yield = OreData.Ore_Data[ore]["Smelting Yield"]
-                Player.Data["Inventory"]["Bars"][smelting_yield] += amount / smelting_ratio
-                print(f"Smelted {amount} of {ore} into {smelting_yield}.")
-            else:
-                print(f"{ore} is not a valid ore.")
-        else:
-            print(f"You do not have enough {ore} to smelt.")
-    else:
-        print(f"{ore} is not in your inventory.")
-    print(UtilVars.spacer)
+
 

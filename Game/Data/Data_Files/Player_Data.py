@@ -12,7 +12,7 @@ Data = {
         "Drills": {},  # Fixed spelling from "Drils"
         "Ores": {
             "Copper Ore": {
-                "Amount": 0,
+                "Amount": 20,
                 "Value": 3
             }
         },
