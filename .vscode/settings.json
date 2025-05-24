@@ -5,14 +5,6 @@
         "Game": "app",
         "Classes": "Controller",
         "Utils": "Utils",
-        "Initialize Game": "tool",
-        "Data_Controllers": "Controller",
-        "Shop System": "Store",
-        "Data": "Config",
-        "Data_Files": "Docs",
-        "Planet_Data": "Moon",
-        "Game System": "App",
-        "Furnace":"Webpack"
     }
 }
 
