@@ -43,4 +43,6 @@ Tools = {
 
 earth_map = Utils.create_map(5, 5)
 
-earth_map[4][4].append('Mining area')
+def edit_earth_map():
+    earth_map[4][4].append('Mining area') 
+
