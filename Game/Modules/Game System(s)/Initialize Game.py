@@ -8,11 +8,12 @@ Menu_Options = {
     '4': 'Exit'
 }
 def initialize_game():
-    font = pyfiglet.Figlet(font = 'doh', width = 50)
-    print(font.renderText('This is a test text.')) 
+    #font = pyfiglet.Figlet(font = 'block', width = 50)
+    #print(font.renderText('This is a test text.')) 
     
+    print('Welcome to ')
 
-initialize_game()
+#initialize_game()
 
 def Game_Menu():
     print("Welcome to the Game!")

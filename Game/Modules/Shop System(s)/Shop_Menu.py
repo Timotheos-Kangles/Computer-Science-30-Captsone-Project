@@ -1,6 +1,6 @@
-import Earth_Data as Edata
+#import Earth_Data as Edata
 import Tools_Menu as Tmenu
-import Stroage_menu as Smenu
+import Storage_menu as Smenu
 shop_menu_options = {
     1: 'Buy tools',
     2: 'Buy storage',
@@ -21,11 +21,12 @@ def shop_menu(planet):
         Tmenu.Tool_Shop_Menu(planet)
     if choice == 2:
         # code here
-        pass
+        Smenu.storage_shop_menu(planet)
     if choice == 3:
         pass
         # weapons
 
+shop_menu('Earth')
 
 
 
