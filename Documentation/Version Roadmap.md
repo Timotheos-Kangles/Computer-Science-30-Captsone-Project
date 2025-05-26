@@ -5,7 +5,7 @@
  ## Version 1
  - initialize game (name, etc) -- Complete
  - Tile System - Working on Tmr
- - Planet traveling
+ - Planet traveling 
  - Mining System
 
   ## Version 2

@@ -13,27 +13,27 @@ import Game.Data.Data_Files.Player_Data as Player
 # Import Controllers
 import Game.Controllers.Menu_Controller as MenuController
 
-Menu_Options = {
+Main_Menu_Options = {
     '1': 'Start Game',
     '2': 'Planet Selection',
     '3': 'Shops',
     '4': 'Exit'
 }
 def initialize_game():
-    font = pyfiglet.Figlet(font = 'doh', width = 50)
-    print(font.renderText('This is a test text.')) 
-    Game_Menu()  # Call Game_Menu after initialization
+    # initialize all objects
+    game_player = Game.Classes.player_class
+    Game_Menu() 
 
 def Game_Menu():
     print("Welcome to the Game!")
-    for Option in Menu_Options:
-        print(f"{Option} | {Menu_Options[Option]}")
+    for Option in Main_Menu_Options:
+        print(f"{Option} | {Main_Menu_Options[Option]}")
 
     try:    
         choice = int(input("Please select an option: "))
     except:
         print("That's not a number.")
-        return  # Return to avoid undefined choice variable
+        return  
     
     # Conditional Statements
     if choice == 1:

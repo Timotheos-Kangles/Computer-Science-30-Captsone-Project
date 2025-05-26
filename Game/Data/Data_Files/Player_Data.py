@@ -1,6 +1,7 @@
 Data = {
     "Name": None,
     "Currency": 250,
+    "Health": 100,
 
     # Player Planets
     "Unlocked Planets": ["Planet 1", "Planet 2", "Planet 3"],
