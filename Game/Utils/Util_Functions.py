@@ -10,3 +10,4 @@ def create_map(length, width):
             grid[i].append(None)
     return grid
 #print(tabulate.tabulate(create_map(5,5), tablefmt='rounded_grid'))
+b
