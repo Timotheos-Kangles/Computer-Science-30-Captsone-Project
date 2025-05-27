@@ -20,11 +20,6 @@ Main_Menu_Options = {
     '4': 'Exit'
 }
 def initialize_game():
-<<<<<<< HEAD
-    # initialize all objects
-    game_player = Game.Classes.player_class
-    Game_Menu() 
-=======
     #font = pyfiglet.Figlet(font = 'block', width = 50)
     #print(font.renderText('This is a test text.')) 
     
@@ -34,7 +29,6 @@ def initialize_game():
     font = pyfiglet.Figlet(font = 'doh', width = 50)
     print(font.renderText('This is a test text.')) 
     Game_Menu()  # Call Game_Menu after initialization
->>>>>>> 445bfd8204a086ab722345e14602541ede91baaf
 
 def Game_Menu():
     print("Welcome to the Game!")

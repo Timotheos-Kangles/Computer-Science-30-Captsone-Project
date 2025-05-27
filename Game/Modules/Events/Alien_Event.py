@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-def alien_event():
-    print('Your mining base is being attacked by aliens! You can \
-          either defend or run away, coming back ')
-=======
 import random
 
 def alien_event():
@@ -34,6 +29,5 @@ def alien_event():
         
         # loop through here
         
->>>>>>> 445bfd8204a086ab722345e14602541ede91baaf
 
     
