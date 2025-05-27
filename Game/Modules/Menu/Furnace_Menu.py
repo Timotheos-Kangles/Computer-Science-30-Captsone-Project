@@ -70,7 +70,6 @@ def furnace_menu():
             print("Invalid option.")
 
 
-furnace_menu("Earth")  # Example call to the furnace menu
 
 
 

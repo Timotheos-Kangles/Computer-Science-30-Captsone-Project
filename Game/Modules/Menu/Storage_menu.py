@@ -22,7 +22,7 @@ def storage_shop_menu(planet):
     print(f"Welcome to the {planet} storage shop. Here you can buy minecarts to store your ores\n")
 
     for index, key in enumerate(storage_shop_options[planet].keys()):
-        print(f'{index+1} - {key}')
+        print(f'{index+1} | {key}')
 
     print(f'Please select an item to see details (1 - {len(storage_shop_options[planet].keys())})')
 

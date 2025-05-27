@@ -1,11 +1,12 @@
-import Player_Data
+# Import Data Files
+import Game.Data.Data_Files.Player_Data as Player
 
 class Player():
     def __init__(self):
-        self.currency = Player_Data.Data['Currency']
+        self.currency = Player.Data['Currency']
         self.pl_x = 0 # player coordinates for movement
         self.pl_y = 0
-        self.planet = Player_Data.Data['Planet']
+        self.planet = Player.Data['Planet']
 
     def movement(self, map):
         choice = input('W A S D to move: ').lower()
