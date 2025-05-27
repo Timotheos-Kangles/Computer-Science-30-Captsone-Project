@@ -1,3 +1,5 @@
+import Utils
+
 Ores = {
     "Blank Ore": {
         "Sell Price": 0,
@@ -38,5 +40,34 @@ Tools = {
         }
     }
 }
+
+Weapons = {
+    "melee": {
+        'iron sword': {
+            'price': 50,
+            'description': 'basic iron sword',
+            'win_chance': 15 # out of 100 chance for any given event
+        },
+        'katana': {
+            'price': 300,
+            'description': 'very powerful sword',
+            'win_chance': 25
+        }
+    },
+    "guns": {
+        'Pistol': {
+            'price': 750,
+            'description': 'basic gun. Higher win rate than katana.',
+            'win_chance': 30
+        },
+        'AK-47': {
+            'price': 1000,
+            'description': 'Powerful automatic rifle. High win rate.',
+            'win_chance': 50
+        }
+    }
+}
+
+
 
 
