@@ -5,7 +5,7 @@ Data = {
 
     # Player Planets
     "Unlocked Planets": ["Planet 1", "Planet 2", "Planet 3"],
-    "Planet": "Mars",
+    "Current Planet": "Mars",
 
     # Player Inventory
     "Inventory": {

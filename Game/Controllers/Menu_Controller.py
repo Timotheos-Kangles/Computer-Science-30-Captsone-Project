@@ -15,7 +15,7 @@ import Game.Data.Data_Files.Planet_Data.Mars_Data as MarsData
 import Game.Modules.Menu.Shop_Menu as ShopMenu
 import Game.Modules.Menu.Furnace_Menu as FurnaceMenu
 
-def fetch__menu(Menu, Planet):
+def fetch_menu(Menu, Planet):
     if Menu == "Tools":
         if Planet == "Earth":
             earth_tools = {
