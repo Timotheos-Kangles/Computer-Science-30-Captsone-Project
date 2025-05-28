@@ -62,6 +62,12 @@ Tools = {
             "Buy Price": 150,
             "Description": "A futuristic medkit, used to quickly patch up damage.",
             "Win Chance": 40
+        },
+        "Bandage": {
+            "Buy Price": 50,
+            "Description": "A small bandage used to heal small cuts",
+            "Win Chance": 20
+
         }
     }
 }

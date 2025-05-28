@@ -48,7 +48,7 @@ def planet_menu(planet):
     if choice == 1:
         MenuController.fetch_menu("Main Menu")
     elif choice == 2:
-        MenuController.fetch_menu("Tools", planet)
+        MenuController.fetch_menu("Tools")
     elif choice == 3:
         FurnaceMenu.furnace_menu(planet)
     else:

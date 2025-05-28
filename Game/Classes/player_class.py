@@ -58,8 +58,8 @@ class Player_obj():
                 print('appended ore to ore_list')
                 ore_list.append(ore)
 
-        print(ore_list)
-        print('There might have been nothing in the list')
+        #print(ore_list)
+        #print('There might have been nothing in the list')
 
         # implement rarity of ores
 
@@ -75,7 +75,7 @@ class Player_obj():
             self.inventory['Ores'][mined_ore]['Amount'] += 1
 
 
-print("Creating player...")
-test_player_obj = Player_obj()
-print("Player created.")
-test_player_obj.mine_tile()
+#print("Creating player...")
+#test_player_obj = Player_obj()
+#print("Player created.")
+#test_player_obj.mine_tile()
