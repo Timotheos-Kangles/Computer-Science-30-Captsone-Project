@@ -20,8 +20,8 @@ import Game.Controllers.Player_Controller as PlayerController
 # TEST
 
     
-def tool_shop_menu(Planet, items):
-    print(f"Welcome to the {Planet} Tool Shop!")
+def tool_shop_menu(Planet, Menu, items):
+    print(f"Welcome to the {Planet} {Menu} Shop!")
     print("Here are the available tools:")
     print(UtilVars.spacer) 
 

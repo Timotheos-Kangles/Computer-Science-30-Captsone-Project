@@ -23,11 +23,12 @@ shop_menu_options = {
     1: 'Buy Pickaxes', # Pickaxe, Drill
     2: 'Buy Drills', #
     3: 'Buy Weapons', # 
-    4: 'Buy Storage' # Weapons for attack/defense
+    4: 'Buy Medkits',
+    5: 'Buy Storage' # Weapons for attack/defense
 }
 
 def shop_menu(planet, planet_tools, planet_weapons):
-    print(f"Welcome to the {planet}'s best shop!")
+    print(f"Welcome to the {planet}'s best shop! What would you like to buy?")
     for key, option in shop_menu_options.items():
         print(f'{key} | {option}')
     try:
@@ -37,19 +38,21 @@ def shop_menu(planet, planet_tools, planet_weapons):
         print("error")
     if choice == 1:
         if planet == "Earth":
-            ToolShop.tool_shop_menu("Earth", EarthData.Tools["Pickaxes"])
+            ToolShop.tool_shop_menu("Earth", "Pickaxe", EarthData.Tools["Pickaxes"])
         elif planet == "Mars":
-            ToolShop.tool_shop_menu("Mars", MarsData.Tools["Pickaxes"])
+            ToolShop.tool_shop_menu("Mars", "Pickaxe", MarsData.Tools["Pickaxes"])
     if choice == 2:
         if planet == "Earth":
-            ToolShop.tool_shop_menu("Earth", EarthData.Tools["Drills"])
+            ToolShop.tool_shop_menu("Earth", "Drill", EarthData.Tools["Drills"])
         elif planet == "Mars":
-            ToolShop.tool_shop_menu("Mars", MarsData.Tools["Drills"])
+            ToolShop.tool_shop_menu("Mars", "Drill", MarsData.Tools["Drills"])
     if choice == 3:
         if planet == "Earth":
-            ToolShop.tool_shop_menu(planet, EarthData.Tools["Weapons"])
+            ToolShop.tool_shop_menu(planet, "Weapons", EarthData.Tools["Weapons"])
         elif planet == "Mars":
-            ToolShop.tool_shop_menu(planet, MarsData.Tools["Weapons"])
+            ToolShop.tool_shop_menu(planet, "Weapons", MarsData.Tools["Weapons"])
+    if choice == 4:
+        ToolShop.tool_shop_menu(planet, "Medi", EarthData.Tools["Medi-Tools"])
     else:
         print("Invalid choice, please try again.")
         shop_menu(planet, planet_tools, planet_weapons)

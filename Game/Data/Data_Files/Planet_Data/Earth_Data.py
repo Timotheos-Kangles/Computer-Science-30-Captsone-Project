@@ -14,8 +14,12 @@ Tools = {
             "Description": "A basic wooden pickaxe used for mining soft materials."
         },
         "Iron Pickaxe": {
-            "Buy Price": 50,
+            "Buy Price": 25,
             "Description": "A sturdy pickaxe capable of mining stronger materials."
+        },
+        "Golden Pickaxe": {
+            "Buy Price": 35,
+            "Description": "A golden pickaxe, shining brightly."
         }
     },
     "Drills": {
@@ -34,18 +38,31 @@ Tools = {
             "Description": "A basic weapon for self-defense.",
             "Win Chance": 10
         },
-        "Katana": {
-            "Buy Price": 150,
-            "Description": "Very Powerful Sword",
-            "Win Chance": 25
+        "Iron Sword": {
+            "Buy Price": 20,
+            "Description": "A basic weapon for self-defense.",
+            "Win Chance": 10
         },
-        "Laser Gun": {
+        "Laser Pistol": {
             "Buy Price": 300,
             "Description": "A futuristic weapon with high damage output.",
+            "Win Chance": 40
+        },
+        "Laser Rifle": {
+            "Buy Price": 300,
+            "Description": "A futuristic rifle to defend yourself in battle.",
+            "Win Chance": 20
+        }
+    },
+    "Medi-Tools": {
+        "Medkit": {
+            "Buy Price": 150,
+            "Description": "A futuristic medkit, used to quickly patch up damage.",
             "Win Chance": 40
         }
     }
 }
+
 
 
 
