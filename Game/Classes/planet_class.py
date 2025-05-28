@@ -46,9 +46,7 @@ class Planet():
         if player.currency > 500:
             print("Player has more than 500 currency")
 
-    def mine_tile(self, y, x):
-        pass
-    
+
 
 
 

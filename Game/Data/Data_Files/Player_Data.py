@@ -5,7 +5,7 @@ Data = {
 
     # Player Planets
     "Unlocked Planets": ["Planet 1", "Planet 2", "Planet 3"],
-    "Current Planet": "Mars",
+    "Current Planet": "Earth",
 
     # Player Inventory
     "Inventory": {
@@ -13,9 +13,9 @@ Data = {
         "Drills": {},  # Fixed spelling from "Drils"
         "Weapons": {},
         "Ores": {
-            "Copper Ore": {
-                "Amount": 20,
-                "Value": 3
+            "Blank Ore": {
+                "Amount": 0,
+                "Value": 0
             }
         },
         "Bars": {

@@ -1,18 +1,30 @@
 # Import Data Files
-import Game.Data.Data_Files.Player_Data as Player
+import sys
+from pathlib import Path
 
-class Player():
+root_dir = Path(__file__).parent.parent.parent
+sys.path.append(str(root_dir))
+
+
+import Game.Data.Data_Files.Player_Data as Player
+import random
+import Game.Controllers.Planet_Controller as PlanetController
+print('RUnning script')
+class Player_obj():
     def __init__(self):
         self.currency = Player.Data['Currency']
+        self.health = Player.Data['Health']
+        self.name = Player.Data['Name']
+        self.inventory = Player.Data['Inventory']
         self.pl_x = 0 # player coordinates for movement
         self.pl_y = 0
-        self.planet = Player.Data['Planet']
+        self.planet = Player.Data['Current Planet']
 
     def movement(self, map):
         choice = input('W A S D to move: ').lower()
 
         if choice == 'w':
-            self.ply -= 1
+            self.pl_y -= 1
         elif choice == 'a': 
             self.pl_x -= 1
         elif choice == 's':
@@ -32,5 +44,36 @@ class Player():
         elif self.pl_y >= len(map):
             self.pl_y = len(map) - 1
             
- 
-    
+    def mine_tile(self):
+        oil_explosion_chance = 10 # percent chance of explosion
+        player_planet_data = PlanetController.fetch_planet_data(self.planet)
+        ore_list = list(player_planet_data.Ores.keys())
+
+
+        for ore in player_planet_data.Ores.keys():
+            for rarity in range(player_planet_data.Ores[ore]['Rarity'] - 1):
+                print("Entered mine_tile()")
+
+                ore_list.append(ore)
+
+        print(ore_list)
+        print('There might have been nothing in the list')
+
+        # implement rarity of ores
+
+        if oil_explosion_chance > random.randint(0, 100):
+            print("Oil explosion! You lost some health.")
+            self.health -= 10
+            if self.health <= 0:
+                print("You have died. Game over.")
+                return False
+        else:
+            mined_ore = random.choice(ore_list)
+            print(f"You mined {mined_ore}!")
+            self.inventory['Ores'][mined_ore]['Amount'] += 1
+
+
+print("Creating player...")
+test_player_obj = Player_obj()
+print("Player created.")
+test_player_obj.mine_tile()
