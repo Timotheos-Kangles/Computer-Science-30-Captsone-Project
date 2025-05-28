@@ -1,4 +1,4 @@
-import pyfiglet
+
 import time
 
 import sys
@@ -9,7 +9,7 @@ sys.path.append(str(root_dir))
 
 # Import Data Files
 import Game.Data.Data_Files.Player_Data as Player
-
+import Game.Classes.player_class as player_class 
 # Import Controllers
 import Game.Controllers.Menu_Controller as MenuController
 
@@ -22,16 +22,15 @@ Main_Menu_Options = {
 def initialize_game():
     #font = pyfiglet.Figlet(font = 'block', width = 50)
     #print(font.renderText('This is a test text.')) 
-    
-    print('Welcome to ')
+    game_player = player_class.Player_obj()
+    Player.Data["Name"] = input("Please enter your name: ")
 
-#initialize_game()
-    font = pyfiglet.Figlet(font = 'doh', width = 50)
-    print(font.renderText('This is a test text.')) 
+
     Game_Menu()  # Call Game_Menu after initialization
 
 def Game_Menu():
-    print("Welcome to the Game!")
+    print(f"Welcome to the Game, {Player.Data['Name']}!")
+    print("Please select an option from the menu below:")
     for Option in Main_Menu_Options:
         print(f"{Option} | {Main_Menu_Options[Option]}")
 
@@ -47,9 +46,12 @@ def Game_Menu():
     elif choice == 2:
         print("Planet Selection...")
     elif choice == 3:
-        MenuController.fetch_menu(Player.Data["Current Planet"])
+        MenuController.fetch_menu("Shop", Player.Data["Current Planet"])
     elif choice == 4:
         print("Exiting Game...")
         print("Exiting Game...")
 
+initialize_game()
 Game_Menu()
+
+

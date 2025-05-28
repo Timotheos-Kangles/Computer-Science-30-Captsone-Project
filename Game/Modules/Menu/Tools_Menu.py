@@ -20,29 +20,29 @@ import Game.Controllers.Player_Controller as PlayerController
 # TEST
 
     
-def tool_shop_menu(Planet, items):
-    print(f"Welcome to the {Planet} Tool Shop!")
+def tool_shop_menu(Planet, Menu, items):
+    print(f"Welcome to the {Planet} {Menu} Shop!")
     print("Here are the available tools:")
     print(UtilVars.spacer) 
 
-    for index, category in enumerate(items.keys(), 1):
-        print(f"{index} | {category}")
+    # Display available tools
+    for index, tool in enumerate(items.keys(), 1):
+        print(f"{index} | {tool}")
     print(UtilVars.spacer)
-    choice = int(input("Please select a category (1, 2, 3): "))
     
-    if choice in range(1, len(items) + 1):
-        selected_category = list(items.keys())[choice - 1]
-        print(f"\nAvailable {selected_category}:")
-        for index, item in enumerate(items[selected_category].keys(), 1):
-            print(f"{index} | {item}")
-        
-        tool_choice = int(input("Select a tool: "))
-        if tool_choice in range(1, len(items[selected_category]) + 1):
-            selected_tool = list(items[selected_category].keys())[tool_choice - 1]
-            tool_data = items[selected_category][selected_tool]
+    try:
+        choice = int(input("Select a tool (1-" + str(len(items)) + "): "))
+        if choice in range(1, len(items) + 1):
+            selected_tool = list(items.keys())[choice - 1]
+            tool_data = items[selected_tool]
+            
+            # Display tool details
             print(UtilVars.spacer)
-            print(f"Price: {tool_data['Buy Price']}")
-            print(f"Description: {tool_data['Description']}")
+            print(f"Available {selected_tool}:")
+            print(f"- Price: {tool_data['Buy Price']}")
+            print(f"- Description: {tool_data['Description']}")
+            print(UtilVars.spacer)
+            
             confirm = input("Would you like to buy this tool? (y/n): ").lower()
             if confirm == 'y':
                 purchase_tool(selected_tool, tool_data['Buy Price'])
@@ -50,8 +50,8 @@ def tool_shop_menu(Planet, items):
                 print("Purchase cancelled.")
         else:
             print("Invalid tool selection.")
-    else:
-        print("Invalid category selection.")
+    except ValueError:
+        print("Please enter a valid number.")
 
 
 def purchase_tool(tool, price):

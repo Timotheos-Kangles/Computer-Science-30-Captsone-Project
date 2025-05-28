@@ -9,6 +9,7 @@ def alien_event():
     '''
     chance = 25
     player_money = 500
+    
     if player_money > 1000 # requirement for event to trigger
         if random.randint(0, 100) < chance: # if some random number is less than 25
             print("You are being attacked by aliens! They are going to steal your ores! Either fight\

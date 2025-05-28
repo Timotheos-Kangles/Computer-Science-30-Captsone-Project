@@ -12,20 +12,23 @@ import Game.Data.Data_Files.Player_Data as Player
 
 # Import Menu Modules
 import Game.Modules.Menu.Tools_Menu as ToolShop
-import Game.Modules.Menu.Weapons_Menu as WeaponShop
+import Game.Archive.Weapons_Menu as WeaponShop
+import Game.Modules.Menu.Storage_menu as StorageShop
 
 # Import Data Files
 import Game.Data.Data_Files.Planet_Data.Earth_Data as EarthData
 import Game.Data.Data_Files.Planet_Data.Mars_Data as MarsData
 
 shop_menu_options = {
-    1: 'Buy Tools', # Pickaxe, Drill
-    2: 'Buy Weapons', # 
-    3: 'Buy Storage' # Weapons for attack/defense
+    1: 'Buy Pickaxes', # Pickaxe, Drill
+    2: 'Buy Drills', #
+    3: 'Buy Weapons', # 
+    4: 'Buy Medkits',
+    5: 'Buy Storage' # Weapons for attack/defense
 }
 
 def shop_menu(planet, planet_tools, planet_weapons):
-    print(f"Welcome to the {planet}'s best shop!")
+    print(f"Welcome to the {planet}'s best shop! What would you like to buy?")
     for key, option in shop_menu_options.items():
         print(f'{key} | {option}')
     try:
@@ -34,10 +37,27 @@ def shop_menu(planet, planet_tools, planet_weapons):
     except:
         print("error")
     if choice == 1:
-       ToolShop.tool_shop_menu(planet, planet_tools)
+        if planet == "Earth":
+            ToolShop.tool_shop_menu("Earth", "Pickaxe", EarthData.Tools["Pickaxes"])
+        elif planet == "Mars":
+            ToolShop.tool_shop_menu("Mars", "Pickaxe", MarsData.Tools["Pickaxes"])
     if choice == 2:
-        WeaponShop.tool_shop_menu(planet, planet_weapons)
+        if planet == "Earth":
+            ToolShop.tool_shop_menu("Earth", "Drill", EarthData.Tools["Drills"])
+        elif planet == "Mars":
+            ToolShop.tool_shop_menu("Mars", "Drill", MarsData.Tools["Drills"])
     if choice == 3:
-        pass
+        if planet == "Earth":
+            ToolShop.tool_shop_menu(planet, "Weapons", EarthData.Tools["Weapons"])
+        elif planet == "Mars":
+            ToolShop.tool_shop_menu(planet, "Weapons", MarsData.Tools["Weapons"])
+    if choice == 4:
+        ToolShop.tool_shop_menu(planet, "Medi", EarthData.Tools["Medi-Tools"])
+    else:
+        print("Invalid choice, please try again.")
+        shop_menu(planet, planet_tools, planet_weapons)
+
+        
+
 
 

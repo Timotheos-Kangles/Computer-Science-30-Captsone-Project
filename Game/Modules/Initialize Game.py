@@ -1,1 +1,0 @@
-game_player = Game.Classes.player_class.Player('this')

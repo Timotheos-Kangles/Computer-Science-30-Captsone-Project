@@ -17,7 +17,6 @@ menu_options = {
 }
 
 def smelt_ore(ore, amount):
-    # Remove space and combine words for matching OreData variable names
     ore_var_name = ore.replace(" ", "")
     
     if ore in Player.Data["Inventory"]["Ores"]:
@@ -30,11 +29,9 @@ def smelt_ore(ore, amount):
                 bar_name = list(smelting_yield.keys())[0]
                 bars_produced = amount // smelting_ratio
 
-                # Update inventory
                 Player.Data["Inventory"]["Ores"][ore]["Amount"] -= amount
                 Player.Data["Inventory"]["Bars"][bar_name]["Amount"] += bars_produced
 
-                # Print progress
                 print(UtilVars.spacer)
                 print(f"Smelting {amount} of {ore}...")
                 print(f"Smelted {amount} of {ore} into {bars_produced} {bar_name}(s).")
@@ -70,10 +67,7 @@ def furnace_menu():
             print("Invalid option.")
 
 
-<<<<<<< HEAD
-#furnace_menu("Earth")  # Example call to the furnace menu
-=======
->>>>>>> 771c5dc54658d393bf2e18ebc2463f77d3a54e01
+furnace_menu("Earth")  # Example
 
 
 

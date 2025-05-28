@@ -16,6 +16,7 @@ import Game.Modules.Menu.Shop_Menu as ShopMenu
 import Game.Modules.Menu.Furnace_Menu as FurnaceMenu
 
 def fetch_menu(Menu, Planet):
+<<<<<<< HEAD
     if Menu == "Tools":
         if Planet == "Earth":
             earth_tools = {
@@ -32,8 +33,11 @@ def fetch_menu(Menu, Planet):
             mars_weapons = MarsData.Tools["Weapons"]
             ShopMenu.shop_menu("Mars", mars_tools, mars_weapons)
     elif Menu == "Furnace":
+=======
+    if Menu == "Furnace":
+>>>>>>> 771c5dc54658d393bf2e18ebc2463f77d3a54e01
         FurnaceMenu.furnace_menu()
-    elif Menu == "Main Menu":
-        print("AAAA")
+    elif Menu == "Shop":
+        ShopMenu.shop_menu("Earth", EarthData.Tools, EarthData.Tools["Weapons"])
 
 

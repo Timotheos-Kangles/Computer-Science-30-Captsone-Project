@@ -4,8 +4,8 @@
 
  ## Version 1
  - initialize game (name, etc) -- Complete
- - Tile System - Working on Tmr
- - Planet traveling 
+ - Tile System - Working on At School
+ - Planet traveling
  - Mining System
 
   ## Version 2
@@ -14,7 +14,7 @@
  - Feature
 
   ## Version 3
- - Special Events
+ - Special Events 
  - Feature
  
  

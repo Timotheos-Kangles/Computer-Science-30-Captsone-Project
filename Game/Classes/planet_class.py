@@ -47,7 +47,6 @@ class Planet():
             print("Player has more than 500 currency")
 
 
-    
 
 
 
