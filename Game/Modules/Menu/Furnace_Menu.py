@@ -70,6 +70,10 @@ def furnace_menu():
             print("Invalid option.")
 
 
+<<<<<<< HEAD
+#furnace_menu("Earth")  # Example call to the furnace menu
+=======
+>>>>>>> 771c5dc54658d393bf2e18ebc2463f77d3a54e01
 
 
 
