@@ -44,9 +44,9 @@ def Game_Menu():
     if choice == 1:
         print("Starting Game...")
     elif choice == 2:
-        print("Planet Selection...")
+        MenuController.fetch_menu("Planet Selection")
     elif choice == 3:
-        MenuController.fetch_menu("Shop", Player.Data["Current Planet"])
+        MenuController.fetch_menu("Shop")
     elif choice == 4:
         print("Exiting Game...")
         print("Exiting Game...")

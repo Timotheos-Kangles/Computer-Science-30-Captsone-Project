@@ -4,7 +4,7 @@ Data = {
     "Health": 100,
 
     # Player Planets
-    "Unlocked Planets": ["Planet 1", "Planet 2", "Planet 3"],
+    "Unlocked Planets": ["Earth", "Moon", "Mars"],
     "Current Planet": "Earth",
 
     # Player Inventory
