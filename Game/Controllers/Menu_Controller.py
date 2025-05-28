@@ -32,7 +32,7 @@ def fetch_menu(Menu, Planet):
             }
             mars_weapons = MarsData.Tools["Weapons"]
             ShopMenu.shop_menu("Mars", mars_tools, mars_weapons)
-    elif Menu == "Furnace":
+    
     if Menu == "Furnace":
         FurnaceMenu.furnace_menu()
     elif Menu == "Shop":
