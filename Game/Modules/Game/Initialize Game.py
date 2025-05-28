@@ -20,8 +20,6 @@ Main_Menu_Options = {
     '4': 'Exit'
 }
 def initialize_game():
-    #font = pyfiglet.Figlet(font = 'block', width = 50)
-    #print(font.renderText('This is a test text.')) 
     game_player = player_class.Player_obj()
     Player.Data["Name"] = input("Please enter your name: ")
 

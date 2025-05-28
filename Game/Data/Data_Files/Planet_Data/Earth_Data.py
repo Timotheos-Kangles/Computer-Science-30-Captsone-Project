@@ -1,14 +1,11 @@
-<<<<<<< HEAD
 
 
 import Game.Utils.Util_Functions
-=======
->>>>>>> 771c5dc54658d393bf2e18ebc2463f77d3a54e01
 
 Ores = {
     "Blank Ore": {
         "Sell Price": 0,
-        "Rarity": 10,  # 1-5
+        "Rarity": 5,  # 1-5
         "Description": "A blank ore that can be used to create various items."
     }
 }

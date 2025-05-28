@@ -48,12 +48,14 @@ class Player_obj():
         oil_explosion_chance = 10 # percent chance of explosion
         player_planet_data = PlanetController.fetch_planet_data(self.planet)
         ore_list = list(player_planet_data.Ores.keys())
-
-
+        print(player_planet_data.Ores) # debug line
+        print(player_planet_data.Ores['Blank Ore']['Rarity']) # debug line
         for ore in player_planet_data.Ores.keys():
+            print('ran loop for ore once') # debug line
             for rarity in range(player_planet_data.Ores[ore]['Rarity'] - 1):
+                print('ran loop for rarity twice')  # debug line
                 print("Entered mine_tile()")
-
+                print('appended ore to ore_list')
                 ore_list.append(ore)
 
         print(ore_list)
