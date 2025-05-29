@@ -8,18 +8,20 @@ sys.path.append(str(root_dir))
 import Game.Utils.Util_Variables as UtilVars
 
 # Import Data Files
-import Game.Data.Data_Files.Player_Data as Player
+#import Game.Data.Data_Files.Player_Data as Player
 import Game.Data.Data_Files.Ore_Data as OreData
 
+# import controllers
+import Game.Controllers.Player_Controller as Player_Controller
 
 menu_options = {
     1: 'Smelt Ore',
 }
 
-def smelt_ore(ore, amount):
+def smelt_ore(ore, amount, game_player):
     # Remove space and combine words for matching OreData variable names
     ore_var_name = ore.replace(" ", "")
-    
+    Player = Player_Controller.fetch_player_data(game_player)
     if ore in Player.Data["Inventory"]["Ores"]:
         if Player.Data["Inventory"]["Ores"][ore]["Amount"] >= amount:
             ore_data = getattr(OreData, ore_var_name)
@@ -48,7 +50,7 @@ def smelt_ore(ore, amount):
         print(f"{ore} is not in your inventory.")
     print(UtilVars.spacer)
 
-def furnace_menu():
+def furnace_menu(Player):
     print(UtilVars.spacer)
     print(f"Welcome to the Furnace!")
     print("Here are the available Options:")
@@ -65,7 +67,7 @@ def furnace_menu():
             print(UtilVars.spacer)
             ore = input("Enter the ore you want to smelt: ")
             amount = int(input("Enter the amount of ore you want to smelt: "))
-            smelt_ore(ore, amount)
+            smelt_ore(ore, amount, Player)
         else:
             print("Invalid option.")
 

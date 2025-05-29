@@ -37,7 +37,7 @@ def fetch_menu(Menu, game_player, Planet=None):
     if Menu == "Furnace":
         FurnaceMenu.furnace_menu()
     elif Menu == "Shop":
-        ShopMenu.shop_menu("Earth", EarthData.Tools, EarthData.Tools["Weapons"])
+        ShopMenu.shop_menu("Earth")#, EarthData.Tools, EarthData.Tools["Weapons"])
     elif Menu == "Planet Selection":
         PlanetSelectMenu.planet_selection()
     elif Menu == "Planet Menu":

@@ -11,7 +11,14 @@ import Game.Data.Data_Files.Player_Data as Player
 # Import Classes
 import Game.Classes.player_class as player_class
 import Game.Classes.planet_class as planet_class
+
+# objects initialization
+
+
+
 earth_obj = planet_class.Planet("Earth")
+mars_obj = planet_class.Planet("Mars")
+
 Main_Menu_Options = {
     '1': 'Start Game',
     '2': 'Planet Selection',
@@ -27,6 +34,7 @@ def Game_Menu(game_player):
     
 
     print(f"Welcome to the Game, {Player.Data['Name']}!")
+    print(f"Your planet is: {game_player.planet}")
     print("Please select an option from the menu below:")
     for Option in Main_Menu_Options:
         print(f"{Option} | {Main_Menu_Options[Option]}")
@@ -51,8 +59,13 @@ def Game_Menu(game_player):
     return True
 
 if __name__ == "__main__":
-    initialize_game()
     player = player_class.Player_obj()
+    initialize_game()
+
+    # initialize objects
+    #player = player_class.Player_obj()
+
+
     while True:
         if not Game_Menu(player):
             break
