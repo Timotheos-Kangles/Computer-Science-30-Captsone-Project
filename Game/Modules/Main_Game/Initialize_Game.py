@@ -8,9 +8,11 @@ sys.path.append(str(root_dir))
 
 # Import Data Files
 import Game.Data.Data_Files.Player_Data as Player
+
 # Import Classes
 import Game.Classes.player_class as player_class
 import Game.Classes.planet_class as planet_class
+
 earth_obj = planet_class.Planet("Earth")
 Main_Menu_Options = {
     '1': 'Start Game',

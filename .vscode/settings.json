@@ -11,7 +11,8 @@
         "Data_Files": "Docs",
         "Planet_Data": "Moon",
         "Furnace":"Webpack",
-        "Menu": "Windows"
+        "Menu": "Windows",
+        "Main_Game": "app"
     }
 }
 
