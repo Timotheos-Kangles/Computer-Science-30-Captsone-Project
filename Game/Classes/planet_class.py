@@ -2,7 +2,9 @@
 # Import Libraries
 import time
 import random
+import copy 
 import sys
+import tabulate
 from pathlib import Path
 
 root_dir = Path(__file__).parent.parent.parent.parent
@@ -12,8 +14,10 @@ sys.path.append(str(root_dir))
 import Game.Classes.player_class as PClass
 
 
+
 class Planet():
     def __init__(self, name):
+        # core gameplay variables
         self.ores ={ 
             "Copper Ore": {
                 "Value": 5,
@@ -31,14 +35,21 @@ class Planet():
         self.size = (0, 0)  # Default size, Length and Width
         self.events = []  # List of events on the planet
         
+        # grid variables
+        self.grid = []
+        self.visual_grid = []
     
     def create_grid(self, length, width):
-        grid = []
+
         for i in range(length):
-            grid.append([])
+            self.grid.append([])
             for j in range(width):
-                grid[i].append(None)
-        return grid
+                self.grid[i].append(None)
+
+        visual_grid = copy.deepcopy(self.grid)  # Create a visual grid for display
+
+    def visual_grid(self):
+        print(tabulate.tabulate(self.visual_grid, tablefmt="rounded_grid"))
 
     def planet_event(self):
         player = PClass.player_class()

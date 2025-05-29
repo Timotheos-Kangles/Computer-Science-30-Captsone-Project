@@ -1,4 +1,4 @@
-import tabulate
+#import tabulate
 
 
 def create_map(length, width):

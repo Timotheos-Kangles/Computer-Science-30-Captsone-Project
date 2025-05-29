@@ -1,4 +1,3 @@
-
 import sys
 from pathlib import Path
 
@@ -15,8 +14,10 @@ import Game.Data.Data_Files.Planet_Data.Mars_Data as MarsData
 import Game.Modules.Menu.Shop_Menu as ShopMenu
 import Game.Modules.Menu.Furnace_Menu as FurnaceMenu
 import Game.Modules.Menu.Planet_Selection_menu as PlanetSelectMenu
+#import Game.Modules.Menu.Planet_Menu as Planet_Menu
 
-def fetch_menu(Menu, Planet):
+def fetch_menu(Menu, game_player, Planet=None):
+    
     if Menu == "Tools":
         if Planet == "Earth":
             earth_tools = {
@@ -39,6 +40,11 @@ def fetch_menu(Menu, Planet):
         ShopMenu.shop_menu("Earth", EarthData.Tools, EarthData.Tools["Weapons"])
     elif Menu == "Planet Selection":
         PlanetSelectMenu.planet_selection()
-
+    elif Menu == "Planet Menu":
+        from Game.Modules.Menu.Planet_Menu import planet_menu
+        next_menu = planet_menu(game_player, Planet)
+        if next_menu == "Main Menu":
+            fetch_menu("Main Menu", game_player)
+        # handle other returns as needed
 
 

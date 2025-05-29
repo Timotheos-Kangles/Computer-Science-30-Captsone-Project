@@ -1,4 +1,9 @@
+import sys
+from pathlib import Path
 
+
+root_dir = Path(__file__).parent.parent.parent.parent
+sys.path.append(str(root_dir))
 
 # Import Others
 import Game.Utils.Util_Variables as UtilVars
@@ -10,16 +15,20 @@ import Game.Modules.Menu.Furnace_Menu as FurnaceMenu
 import Game.Modules.Menu.Shop_Menu as ShopMenu
 
 # Import Controllers
-import Game.Controllers.Menu_Controller as MenuController
+    #import Game.Controllers.Menu_Controller as MenuController
+import Game.Controllers.Planet_Controller as Planet_Controller
+
+
 
 Planet_Menu_Options = {
     1: 'Return to Main Menu',
     2: 'Shop',
     3: 'Furnace',
+    4: 'Movement',
 
 }
 
-def planet_menu(planet):
+def planet_menu(game_player, planet):
     print(f"Welcome to {planet} Menu!")
     print(UtilVars.spacer)
     
@@ -28,11 +37,18 @@ def planet_menu(planet):
     choice = int(input("Please select an option: "))
 
     if choice == 1:
-        MenuController.fetch_menu("Main Menu")
+        #MenuController.fetch_menu("Main Menu")
+        return "Main Menu"
     elif choice == 2:
+        #ShopMenu.shop_menu(planet)
         ShopMenu.shop_menu(planet)
     elif choice == 3:
+        #FurnaceMenu.furnace_menu(planet)
         FurnaceMenu.furnace_menu(planet)
+    elif choice == 4:
+        while True:
+            Planet_Controller.fetch_planet_obj(game_player.planet).visual_grid
+            game_player.movement(Planet_Controller.fetch_planet_obj(game_player.planet).grid)
     else:
         print("Invalid option selected.")
     print("What would you like to do?")
