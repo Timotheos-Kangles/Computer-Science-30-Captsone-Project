@@ -15,7 +15,8 @@ Main_Menu_Options = {
     '1': 'Start Game',
     '2': 'Planet Selection',
     '3': 'Shops',
-    '4': 'Exit'
+    '4': 'Casino',
+    '5': 'Exit'
 }
 
 def initialize_game():
@@ -45,7 +46,10 @@ def Game_Menu(game_player):
         MenuController.fetch_menu("Planet Selection", game_player, game_player.planet)
     elif choice == 3:
         MenuController.fetch_menu("Shop", game_player, game_player.planet)
-    elif choice == 4:
+    elif choice == 3:
+        print("Opening Casino...")
+        print("Casino is not implemented yet.")
+    elif choice == 5:
         print("Exiting Game...")
         return False  # Exit loop
     return True

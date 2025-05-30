@@ -1,6 +1,6 @@
 Data = {
     "Name": None,
-    "Currency": 250,
+    "Currency": 500000,
     "Health": 100,
 
     # Player Planets
@@ -14,13 +14,13 @@ Data = {
         "Weapons": [],
         "Ores": {
             "Blank Ore": {
-                "Amount": 0,
+                "Amount": 200,
                 "Value": 0
             }
         },
         "Bars": {
             "Copper Bar": {
-                "Amount": 0,
+                "Amount": 200,
                 "Value": 10
             }
         }

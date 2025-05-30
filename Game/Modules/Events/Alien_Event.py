@@ -52,6 +52,7 @@ def alien_event():
                 weapons = Player.Data["Inventory"]["Weapons"]
                 if not weapons:
                     print("You have no weapons to fight with! The aliens steal some of your ores...")
+                    ore_loss()
                     return
                     
                 print("\nAvailable weapons:")
@@ -72,30 +73,35 @@ def alien_event():
                         else:
                             print(f"Despite using your {selected_weapon}, the aliens overwhelmed you!")
                             print("You lost some ores in the battle...")
-                            # Handle ore loss like running away
+                            ore_loss()
+
                     else:
                         print("Invalid weapon selection. The aliens take advantage of your hesitation!")
-                        # Handle ore loss like running away
+                        ore_loss()
+
                 except ValueError:
                     print("Invalid input. The aliens attack while you fumble with your weapons!")
-                    # Handle ore loss like running away
+                    ore_loss()
+
 
             elif choice == 2:
                 print("You choose to run away from the aliens...")
                 print(UtilVars.spacer)
-                for ore_name, ore_data in Player.Data["Inventory"]["Ores"].items():
-                    ore_amount = ore_data.get("Amount", 0)  # Get the amount from the ore dictionary
-                    if ore_amount > 0:
-                        # Randomly choose between 10% and 30% loss
-                        loss_percentage = random.choice([0.10, 0.30])
-                        ore_loss = int(ore_amount * loss_percentage)
-                        
-                        # Update ore amount
-                        Player.Data["Inventory"]["Ores"][ore_name]["Amount"] -= ore_loss
-                        
-                        print(f"> You lost {ore_loss} {ore_name} ({int(loss_percentage * 100)}% lost) |  Remaining: {Player.Data['Inventory']['Ores'][ore_name]['Amount']}")
-                
+                ore_loss()
+                print(UtilVars.spacer)
                 print("\nYou managed to escape, but at what cost...")
             
+def ore_loss():
+    for ore_name, ore_data in Player.Data["Inventory"]["Ores"].items():
+        ore_amount = ore_data.get("Amount", 0)  # Get the amount from the ore dictionary
+        if ore_amount > 0:
+            # Randomly choose between 10% and 30% loss
+            loss_percentage = random.choice([0.10, 0.30])
+            ore_loss = int(ore_amount * loss_percentage)
+            
+            # Update ore amount
+            Player.Data["Inventory"]["Ores"][ore_name]["Amount"] -= ore_loss
+            
+            print(f"> You lost {ore_loss} {ore_name} ({int(loss_percentage * 100)}% lost) |  Remaining: {Player.Data['Inventory']['Ores'][ore_name]['Amount']}")
 
 alien_event()
