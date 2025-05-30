@@ -54,13 +54,23 @@ def tool_shop_menu(Planet, Menu, items):
         print("Please enter a valid number.")
 
 
-def purchase_tool(tool, price):
+def purchase_tool(tool, price, player):
+
+    '''
     if Player.Data["Currency"]>= price:
         PlayerController.currency_controller("remove", price)
-        PlayerController.inventory_controller("add", tool)
+        PlayerController.inventory_controller("add", tool, player)
         print(f"You have purchased {tool} for {price} money. You now have {Player.Data['Currency']} left.")
         
     elif Player.Data["Currency"] < price:
         print("You do not have enough money to purchase this tool.")
         print(f"You need {price - Player.Data['Currency']} more money.")
+    '''
 
+    if player.currency >= price:
+        PlayerController.currency_controller("remove", price)
+        PlayerController.inventory_controller("add", tool, player)
+        print(f"You have purchased {tool} for {price} money. You now have {player.currency} left.")
+    elif player.currency < price:
+        print("You do not have enough money to purchase this tool.")
+        print(f"You need {price - player.currency} more money.")
