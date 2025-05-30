@@ -1,5 +1,4 @@
 import time
-
 import sys
 from pathlib import Path
 
@@ -9,16 +8,8 @@ sys.path.append(str(root_dir))
 # Import Data Files
 import Game.Data.Data_Files.Player_Data as Player
 
-# Import Classes
-import Game.Classes.player_class as player_class
-import Game.Classes.planet_class as planet_class
-
-# objects initialization
-
-
-
-earth_obj = planet_class.Planet("Earth")
-mars_obj = planet_class.Planet("Mars")
+# Import shared game objects
+from Game.Modules.Main_Game.game_objects import earth_obj, mars_obj, player
 
 Main_Menu_Options = {
     '1': 'Start Game',
@@ -59,17 +50,17 @@ def Game_Menu(game_player):
         return False  # Exit loop
     return True
 
-player = player_class.Player_obj()
+#player = player_class.Player_obj()
 if __name__ == "__main__":
-    #player = player_class.Player_obj()
     initialize_game()
-
-    # initialize objects
-    #player = player_class.Player_obj()
-
-
     while True:
         if not Game_Menu(player):
             break
 
+from Game.Classes.planet_class import Planet
+from Game.Classes.player_class import Player_obj
 
+# Initialize game objects
+earth_obj = Planet("Earth")
+mars_obj = Planet("Mars")
+player = Player_obj()

@@ -13,7 +13,7 @@ import Game.Data.Data_Files.Planet_Data.Mars_Data as Mars_Data
 import Game.Utils.Util_Variables as UtilVars
 
 # import initializated objects
-from Game.Modules.Main_Game.Initialize_Game import earth_obj
+from Game.Modules.Main_Game.game_objects import earth_obj, mars_obj
 
 def fetch_unlocked_planets():
     for index, planet in enumerate(planet.keys(), 1):

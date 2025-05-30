@@ -11,3 +11,4 @@ def create_map(length, width):
     return grid
 #print(tabulate.tabulate(create_map(5,5), tablefmt='rounded_grid'))
 
+def debug_player_data():

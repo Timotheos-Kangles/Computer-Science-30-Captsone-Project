@@ -1,6 +1,6 @@
 import Game.Data.Data_Files.Player_Data as Player
 import Game.Data.Data_Files.Planet_Data.Earth_Data as Earth_Data
-from Game.Modules.Main_Game.Initialize_Game import player
+#from Game.Modules.Main_Game.Initialize_Game import player
 def currency_controller(action, value):
     if action == "add":
         Player.Data["Currency"] += value
@@ -9,7 +9,7 @@ def currency_controller(action, value):
     else:
         print("Invalid action")
 
-def inventory_controller(action, item):
+def inventory_controller(action, item, player):
     if action == "add":
         if item in Earth_Data.Ores.keys():
             player.inventory['Ores'][item]['amount']+=1
