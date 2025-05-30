@@ -23,4 +23,5 @@ def planet_controller(planet):
     else:
         print(f"You have not unlocked {planet} yet.")
 
-
+def fetch_player_data(player):
+    return Player

@@ -27,7 +27,7 @@ shop_menu_options = {
     5: 'Buy Storage' # Weapons for attack/defense
 }
 
-def shop_menu(planet, planet_tools, planet_weapons):
+def shop_menu(planet):#, planet_tools, planet_weapons):
     print(f"Welcome to the {planet}'s best shop! What would you like to buy?")
     for key, option in shop_menu_options.items():
         print(f'{key} | {option}')
@@ -55,7 +55,7 @@ def shop_menu(planet, planet_tools, planet_weapons):
         ToolShop.tool_shop_menu(planet, "Medi", EarthData.Tools["Medi-Tools"])
     else:
         print("Invalid choice, please try again.")
-        shop_menu(planet, planet_tools, planet_weapons)
+        shop_menu(planet)#, planet_tools, planet_weapons)
 
         
 
