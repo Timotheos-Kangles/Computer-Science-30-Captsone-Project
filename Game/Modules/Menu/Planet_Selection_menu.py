@@ -11,7 +11,7 @@ import Game.Utils.Util_Variables as UtilVars
 import Game.Data.Data_Files.Player_Data as Player
 
 
-def planet_selection():
+def planet_selection(game_player):
     print("Available Planets:")
     print(UtilVars.spacer)
     for index, planet in enumerate(Player.Data["Unlocked Planets"], 1):
@@ -24,6 +24,7 @@ def planet_selection():
             selected_planet = Player.Data["Unlocked Planets"][choice - 1]
             print(f"Traveling to {selected_planet}...")
             Player.Data["Current Planet"] = selected_planet
+            game_player.planet = selected_planet
             print(Player.Data["Current Planet"])
             return selected_planet
         else:

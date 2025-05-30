@@ -10,9 +10,9 @@ Data = {
 
     # Player Inventory
     "Inventory": {
-        "Pickaxes": {},
-        "Drills": {},  # Fixed spelling from "Drils"
-        "Weapons": {},
+        "Pickaxes": [],
+        "Drills": [],  # Fixed spelling from "Drils"
+        "Weapons": [],
         "Ores": {
             "Blank Ore": {
                 "Amount": 0,

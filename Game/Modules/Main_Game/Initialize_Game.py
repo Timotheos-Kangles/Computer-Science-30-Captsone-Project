@@ -50,16 +50,17 @@ def Game_Menu(game_player):
         print("Starting Game...")
         MenuController.fetch_menu("Planet Menu", game_player, game_player.planet)
     elif choice == 2:
-        MenuController.fetch_menu("Planet Selection", game_player)
+        MenuController.fetch_menu("Planet Selection", game_player, game_player.planet)
     elif choice == 3:
-        MenuController.fetch_menu("Shop", game_player)
+        MenuController.fetch_menu("Shop", game_player, game_player.planet)
     elif choice == 4:
         print("Exiting Game...")
         return False  # Exit loop
     return True
 
+player = player_class.Player_obj()
 if __name__ == "__main__":
-    player = player_class.Player_obj()
+    #player = player_class.Player_obj()
     initialize_game()
 
     # initialize objects
