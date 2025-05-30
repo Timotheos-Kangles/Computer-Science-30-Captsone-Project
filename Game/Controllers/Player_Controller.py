@@ -16,7 +16,7 @@ def inventory_controller(action, item, player):
         
         for i in Earth_Data.Tools.keys():
             if item in Earth_Data.Tools[i]:
-                player.inventory['Tools'][i]['amount'].append(item)
+                player.inventory['Tools'][i].append(item)
     elif action == "remove":
         Player.Data["Inventory"].remove(item)
     else:
