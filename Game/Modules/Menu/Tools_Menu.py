@@ -20,7 +20,7 @@ import Game.Controllers.Player_Controller as PlayerController
 # TEST
 
     
-def tool_shop_menu(Planet, Menu, items):
+def tool_shop_menu(Planet, Menu, items, player):
     print(f"Welcome to the {Planet} {Menu} Shop!")
     print("Here are the available tools:")
     print(UtilVars.spacer) 
@@ -45,7 +45,7 @@ def tool_shop_menu(Planet, Menu, items):
             
             confirm = input("Would you like to buy this tool? (y/n): ").lower()
             if confirm == 'y':
-                purchase_tool(selected_tool, tool_data['Buy Price'])
+                purchase_tool(selected_tool, tool_data['Buy Price'], player)
             else:
                 print("Purchase cancelled.")
         else:
@@ -68,7 +68,7 @@ def purchase_tool(tool, price, player):
     '''
 
     if player.currency >= price:
-        PlayerController.currency_controller("remove", price)
+        PlayerController.currency_controller("remove", price, player)
         PlayerController.inventory_controller("add", tool, player)
         print(f"You have purchased {tool} for {price} money. You now have {player.currency} left.")
     elif player.currency < price:

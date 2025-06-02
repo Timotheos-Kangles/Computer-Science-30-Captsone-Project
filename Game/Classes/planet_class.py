@@ -37,7 +37,7 @@ class Planet():
         
         # grid variables
         self.grid = []
-        self.visual_grid = []
+        self.visualize_grid = []
     
     def create_grid(self, length, width):
 
@@ -46,10 +46,10 @@ class Planet():
             for j in range(width):
                 self.grid[i].append(None)
 
-        visual_grid = copy.deepcopy(self.grid)  # Create a visual grid for display
+        self.visualize_grid = copy.deepcopy(self.grid)  # Create a visual grid for display
 
     def visual_grid(self):
-        print(tabulate.tabulate(self.visual_grid, tablefmt="rounded_grid"))
+        print(tabulate.tabulate(self.visualize_grid, tablefmt="rounded_grid"))
 
     def planet_event(self):
         player = PClass.player_class()

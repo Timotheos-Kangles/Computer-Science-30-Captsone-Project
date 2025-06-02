@@ -9,6 +9,7 @@ Data = {
 
     # Player Inventory
     "Inventory": {
+        
         "Pickaxes": [],
         "Drills": [],  # Fixed spelling from "Drils"
         "Weapons": [],

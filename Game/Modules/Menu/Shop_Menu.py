@@ -27,7 +27,7 @@ shop_menu_options = {
     5: 'Buy Storage' # Weapons for attack/defense
 }
 
-def shop_menu(planet):#, planet_tools, planet_weapons):
+def shop_menu(planet, player):#, planet_tools, planet_weapons):
     print(f"Welcome to the {planet}'s best shop! What would you like to buy?")
     for key, option in shop_menu_options.items():
         print(f'{key} | {option}')
@@ -38,24 +38,24 @@ def shop_menu(planet):#, planet_tools, planet_weapons):
         print("error")
     if choice == 1:
         if planet == "Earth":
-            ToolShop.tool_shop_menu("Earth", "Pickaxe", EarthData.Tools["Pickaxes"])
+            ToolShop.tool_shop_menu("Earth", "Pickaxe", EarthData.Tools["Pickaxes"], player)
         elif planet == "Mars":
-            ToolShop.tool_shop_menu("Mars", "Pickaxe", MarsData.Tools["Pickaxes"])
-    if choice == 2:
+            ToolShop.tool_shop_menu("Mars", "Pickaxe", MarsData.Tools["Pickaxes"], player)
+    elif choice == 2:
         if planet == "Earth":
-            ToolShop.tool_shop_menu("Earth", "Drill", EarthData.Tools["Drills"])
+            ToolShop.tool_shop_menu("Earth", "Drill", EarthData.Tools["Drills"], player)
         elif planet == "Mars":
-            ToolShop.tool_shop_menu("Mars", "Drill", MarsData.Tools["Drills"])
-    if choice == 3:
+            ToolShop.tool_shop_menu("Mars", "Drill", MarsData.Tools["Drills"], player)
+    elif choice == 3:
         if planet == "Earth":
-            ToolShop.tool_shop_menu(planet, "Weapons", EarthData.Tools["Weapons"])
+            ToolShop.tool_shop_menu(planet, "Weapons", EarthData.Tools["Weapons"], player)
         elif planet == "Mars":
-            ToolShop.tool_shop_menu(planet, "Weapons", MarsData.Tools["Weapons"])
-    if choice == 4:
-        ToolShop.tool_shop_menu(planet, "Medi", EarthData.Tools["Medi-Tools"])
+            ToolShop.tool_shop_menu(planet, "Weapons", MarsData.Tools["Weapons"], player)
+    elif choice == 4:
+        ToolShop.tool_shop_menu(planet, "Medi", EarthData.Tools["Medi-Tools"], player)
     else:
         print("Invalid choice, please try again.")
-        shop_menu(planet)#, planet_tools, planet_weapons)
+        shop_menu(planet, player)#, planet_tools, planet_weapons)
 
         
 

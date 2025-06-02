@@ -25,14 +25,14 @@ def fetch_menu(Menu, game_player, Planet): #=None):
                 "Drills": EarthData.Tools["Drills"]
             }
             earth_weapons = EarthData.Tools["Weapons"]
-            ShopMenu.shop_menu(Planet)#"Earth", earth_tools, earth_weapons)
+            ShopMenu.shop_menu(Planet, game_player)#"Earth", earth_tools, earth_weapons)
         elif Planet == "Mars":
             mars_tools = {
                 "Pickaxes": MarsData.Tools["Pickaxes"],
                 "Drills": MarsData.Tools["Drills"]
             }
             mars_weapons = MarsData.Tools["Weapons"]
-            ShopMenu.shop_menu(Planet)#"Mars", mars_tools, mars_weapons)
+            ShopMenu.shop_menu(Planet, game_player)#"Mars", mars_tools, mars_weapons)
     
     if Menu == "Furnace":
         FurnaceMenu.furnace_menu()
@@ -44,7 +44,7 @@ def fetch_menu(Menu, game_player, Planet): #=None):
         from Game.Modules.Menu.Planet_Menu import planet_menu
         next_menu = planet_menu(game_player, Planet)
         if next_menu == "Main Menu":
-            fetch_menu("Main Menu", game_player)
+            fetch_menu("Main Menu", game_player, game_player.planet)
         # handle other returns as needed
 
 

@@ -11,6 +11,8 @@ import Game.Data.Data_Files.Player_Data as Player
 # Import shared game objects
 from Game.Modules.Main_Game.game_objects import earth_obj, mars_obj, player
 
+# Import Utilities
+import Game.Utils.Util_Functions as Util_Functions
 Main_Menu_Options = {
     '1': 'Start Game',
     '2': 'Planet Selection',
@@ -21,12 +23,12 @@ Main_Menu_Options = {
 
 def initialize_game():
     Player.Data["Name"] = input("Please enter your name: ")
-
+    print(f"Welcome to the Game, {Player.Data['Name']}!")
 def Game_Menu(game_player):
     import Game.Controllers.Menu_Controller as MenuController
     
 
-    print(f"Welcome to the Game, {Player.Data['Name']}!")
+    
     print(f"Your planet is: {game_player.planet}")
     print("Please select an option from the menu below:")
     for Option in Main_Menu_Options:
@@ -58,8 +60,9 @@ def Game_Menu(game_player):
 if __name__ == "__main__":
     initialize_game()
     while True:
-        if not Game_Menu(player):
-            break
+        Game_Menu(player)
+        Util_Functions.debug_player_data(player)
+            
 
 from Game.Classes.planet_class import Planet
 from Game.Classes.player_class import Player_obj

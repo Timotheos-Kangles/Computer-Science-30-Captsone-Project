@@ -41,14 +41,13 @@ def planet_menu(game_player, planet):
         return "Main Menu"
     elif choice == 2:
         #ShopMenu.shop_menu(planet)
-        ShopMenu.shop_menu(planet)
+        ShopMenu.shop_menu(planet, game_player)
     elif choice == 3:
         #FurnaceMenu.furnace_menu(planet)
         FurnaceMenu.furnace_menu(planet)
     elif choice == 4:
-        while True:
-            Planet_Controller.fetch_planet_obj(game_player.planet).visual_grid
-            game_player.movement(Planet_Controller.fetch_planet_obj(game_player.planet).grid)
+        Planet_Controller.fetch_planet_obj(game_player.planet).visual_grid
+        game_player.movement(Planet_Controller.fetch_planet_obj(game_player.planet).grid)
     else:
         print("Invalid option selected.")
     print("What would you like to do?")
@@ -61,6 +60,7 @@ def planet_menu(game_player, planet):
         print("That's not a number.")
         return
     
+    '''
     if choice == 1:
         MenuController.fetch_menu("Main Menu")
     elif choice == 2:
@@ -69,3 +69,4 @@ def planet_menu(game_player, planet):
         FurnaceMenu.furnace_menu(planet)
     else:
         print("Invalid option. Please try again.")
+    '''

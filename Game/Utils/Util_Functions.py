@@ -19,7 +19,8 @@ def create_map(length, width):
     return grid
 #print(tabulate.tabulate(create_map(5,5), tablefmt='rounded_grid'))
 
-def debug_player_data():
+def debug_player_data(player):
+    '''
     print("Player Data")
     print("-------------------------")
     print(f"Name: {Player.Data['Name']}")
@@ -35,5 +36,23 @@ def debug_player_data():
     print(f"Ores: {Player.Data['Inventory']['Ores']}")
     print(f"Bars: {Player.Data['Inventory']['Bars']}")
     print("--------------------------")
+    '''
+    print("Player Data")
+    print("-------------------------")
+    print(f"Name: {player.name}")
+    print(f"Currency: {player.currency}")
+    print(f"Health: {player.health}")
+    print("-------------------------")
+    print(f"Current Planet: {player.planet}")
+    print(f"Unlocked Planets: {player.unlocked_planets}")
+    print("--------------------------")
+    print(f"Pickaxes: {player.inventory['Pickaxes']}")
+    print(f"Drills: {player.inventory['Drills']}")
+    print(f"Weapons: {player.inventory['Weapons']}")
 
-debug_player_data()
+    print(f"Ores: {player.inventory['Ores']}")
+    print(f"Bars: {player.inventory['Bars']}")
+
+
+
+    
