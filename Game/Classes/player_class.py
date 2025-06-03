@@ -9,6 +9,8 @@ sys.path.append(str(root_dir))
 import Game.Data.Data_Files.Player_Data as Player
 import random
 import Game.Controllers.Planet_Controller as PlanetController
+import Game.Controllers.Player_Controller as Player_Controller
+
 print('RUnning script')
 class Player_obj():
     def __init__(self):
@@ -20,10 +22,14 @@ class Player_obj():
         self.pl_y = 0
         self.planet = Player.Data['Current Planet']
         self.unlocked_planets = Player.Data['Unlocked Planets']
-
-    def movement(self, map):
+    
+    def movement(self, map, planet_obj):
 
         while True:
+            print("DEBUG: map size =", len(map), "rows x", len(map[0]), "cols")
+            print(f"Player Coordinates: ({self.pl_x}, {self.pl_y})")
+            planet_obj.update_player_on_grid(self.pl_x, self.pl_y)
+            planet_obj.visual_grid()
             choice = input('W A S D, back to go back: ').lower()
 
             if choice == 'w':
@@ -38,7 +44,7 @@ class Player_obj():
                 break
             else:
                 print('Invalid input. Please use W, A, S, or D to move.')
-                return
+                pass
             # Check boundaries
             if self.pl_x < 0:
                 self.pl_x = 0

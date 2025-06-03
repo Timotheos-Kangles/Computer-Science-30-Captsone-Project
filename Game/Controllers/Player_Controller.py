@@ -29,3 +29,18 @@ def planet_controller(planet):
     else:
         print(f"You have not unlocked {planet} yet.")
 
+def fetch_grid(planet):
+    if planet == "Earth":
+        from Game.Modules.Main_Game.game_objects import earth_grid
+        return earth_grid
+
+def fetch_planet_obj(planet):
+    if planet == "Earth":
+        from Game.Modules.Main_Game.game_objects import earth_obj
+        return earth_obj
+    elif planet == "Mars":
+        from Game.Modules.Main_Game.game_objects import mars_obj
+        return mars_obj
+    else:
+        print("Planet not found.")
+        return None

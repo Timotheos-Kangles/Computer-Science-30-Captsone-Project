@@ -39,18 +39,30 @@ class Planet():
         self.grid = []
         self.visualize_grid = []
     
-    def create_grid(self, length, width):
-
-        for i in range(length):
+    def create_grid(self, rows, cols):
+        print(f"DEBUG: create_grid called with rows={rows}, cols={cols}")
+        self.grid = []  # Reset grid
+        for i in range(rows):
             self.grid.append([])
-            for j in range(width):
+            for j in range(cols):
                 self.grid[i].append(None)
 
         self.visualize_grid = copy.deepcopy(self.grid)  # Create a visual grid for display
-
+        return self.grid, self.visualize_grid
     def visual_grid(self):
+        
         print(tabulate.tabulate(self.visualize_grid, tablefmt="rounded_grid"))
-
+        if len(self.visualize_grid) == 0:
+            print("Looks like the code for creating the grid is not working properly.")
+    
+    def update_player_on_grid(self, pl_x, pl_y):
+    # Clear grid
+        for y in range(len(self.visualize_grid)):
+            for x in range(len(self.visualize_grid[0])):
+                self.visualize_grid[y][x] = None
+        # Set player position
+        self.visualize_grid[pl_y][pl_x] = "P"
+        return self.visualize_grid
     def planet_event(self):
         player = PClass.player_class()
         

@@ -17,8 +17,9 @@ import Game.Modules.Menu.Shop_Menu as ShopMenu
 # Import Controllers
     #import Game.Controllers.Menu_Controller as MenuController
 import Game.Controllers.Planet_Controller as Planet_Controller
-
-
+import Game.Controllers.Player_Controller as Player_Controller
+# import objects
+from Game.Modules.Main_Game.game_objects import earth_grid
 
 Planet_Menu_Options = {
     1: 'Return to Main Menu',
@@ -46,8 +47,10 @@ def planet_menu(game_player, planet):
         #FurnaceMenu.furnace_menu(planet)
         FurnaceMenu.furnace_menu(planet)
     elif choice == 4:
-        Planet_Controller.fetch_planet_obj(game_player.planet).visual_grid
-        game_player.movement(Planet_Controller.fetch_planet_obj(game_player.planet).grid)
+        while True:
+            Planet_Controller.fetch_planet_obj(game_player.planet).visual_grid()
+            game_player.movement(Player_Controller.fetch_grid(game_player.planet), Player_Controller.fetch_planet_obj(game_player.planet))  
+
     else:
         print("Invalid option selected.")
     print("What would you like to do?")
