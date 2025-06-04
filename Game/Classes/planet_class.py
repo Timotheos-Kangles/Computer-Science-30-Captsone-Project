@@ -40,7 +40,7 @@ class Planet():
         self.visualize_grid = []
     
     def create_grid(self, rows, cols):
-        print(f"DEBUG: create_grid called with rows={rows}, cols={cols}")
+        print(f"DEBUG: creating grid with rows={rows}, cols={cols} ... ")
         self.grid = []  # Reset grid
         for i in range(rows):
             self.grid.append([])

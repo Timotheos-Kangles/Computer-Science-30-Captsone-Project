@@ -10,7 +10,7 @@ import Game.Data.Data_Files.Player_Data as Player
 import random
 import Game.Controllers.Planet_Controller as PlanetController
 import Game.Controllers.Player_Controller as Player_Controller
-
+import Game.Utils.Util_Functions as Util_Functions
 print('RUnning script')
 class Player_obj():
     def __init__(self):
@@ -22,11 +22,11 @@ class Player_obj():
         self.pl_y = 0
         self.planet = Player.Data['Current Planet']
         self.unlocked_planets = Player.Data['Unlocked Planets']
-    
-    def movement(self, map, planet_obj):
+        self.alive = True # Player status so game ends when player dies
+    def movement(self, map_parameter, planet_obj):
 
         while True:
-            print("DEBUG: map size =", len(map), "rows x", len(map[0]), "cols")
+            print("DEBUG before movement: map size =", len(map_parameter), "rows x", len(map_parameter[0]), "cols")
             print(f"Player Coordinates: ({self.pl_x}, {self.pl_y})")
             planet_obj.update_player_on_grid(self.pl_x, self.pl_y)
             planet_obj.visual_grid()
@@ -40,6 +40,8 @@ class Player_obj():
                 self.pl_y += 1
             elif choice == 'd':
                 self.pl_x += 1
+            elif choice == 'm':
+                self.mine_tile()
             elif choice == 'back':
                 break
             else:
@@ -48,25 +50,20 @@ class Player_obj():
             # Check boundaries
             if self.pl_x < 0:
                 self.pl_x = 0
-            elif self.pl_x >= len(map[0]):
-                self.pl_x = len(map[0]) - 1
+            elif self.pl_x >= len(map_parameter[0]):
+                self.pl_x = len(map_parameter[0]) - 1
             if self.pl_y < 0:
                 self.pl_y = 0
-            elif self.pl_y >= len(map):
-                self.pl_y = len(map) - 1
+            elif self.pl_y >= len(map_parameter):
+                self.pl_y = len(map_parameter) - 1
             
     def mine_tile(self):
-        oil_explosion_chance = 10 # percent chance of explosion
+        oil_explosion_chance = 80 # percent chance of explosion
         player_planet_data = PlanetController.fetch_planet_data(self.planet)
         ore_list = list(player_planet_data.Ores.keys())
-        print(player_planet_data.Ores) # debug line
-        print(player_planet_data.Ores['Blank Ore']['Rarity']) # debug line
         for ore in player_planet_data.Ores.keys():
-            print('ran loop for ore once') # debug line
+
             for rarity in range(player_planet_data.Ores[ore]['Rarity'] - 1):
-                print('ran loop for rarity twice')  # debug line
-                print("Entered mine_tile()")
-                print('appended ore to ore_list')
                 ore_list.append(ore)
 
         #print(ore_list)
@@ -79,11 +76,14 @@ class Player_obj():
             self.health -= 10
             if self.health <= 0:
                 print("You have died. Game over.")
+                self.alive = False
                 return False
         else:
             mined_ore = random.choice(ore_list)
             print(f"You mined {mined_ore}!")
             self.inventory['Ores'][mined_ore]['Amount'] += 1
+        Util_Functions.debug_player_data(self)
+            
 
 
 #print("Creating player...")

@@ -28,9 +28,11 @@ def Game_Menu(game_player):
     import Game.Controllers.Menu_Controller as MenuController
     
 
-    
+
     print(f"Your planet is: {game_player.planet}")
     print("Please select an option from the menu below:")
+
+
     for Option in Main_Menu_Options:
         print(f"{Option} | {Main_Menu_Options[Option]}")
 
@@ -54,8 +56,9 @@ def Game_Menu(game_player):
     elif choice == 5:
         print("Exiting Game...")
         return False  # Exit loop
-    return True
 
+    
+    return True
 #player = player_class.Player_obj()
 if __name__ == "__main__":
     initialize_game()
@@ -63,5 +66,4 @@ if __name__ == "__main__":
         Game_Menu(player)
         Util_Functions.debug_player_data(player)
             
-
 

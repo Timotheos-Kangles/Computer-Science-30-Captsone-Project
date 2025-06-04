@@ -31,8 +31,8 @@ def planet_controller(planet):
 
 def fetch_grid(planet):
     if planet == "Earth":
-        from Game.Modules.Main_Game.game_objects import earth_grid
-        return earth_grid
+        from Game.Modules.Main_Game.game_objects import earth_grid1
+        return earth_grid1
 
 def fetch_planet_obj(planet):
     if planet == "Earth":

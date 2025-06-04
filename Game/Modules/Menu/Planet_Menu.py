@@ -19,7 +19,7 @@ import Game.Modules.Menu.Shop_Menu as ShopMenu
 import Game.Controllers.Planet_Controller as Planet_Controller
 import Game.Controllers.Player_Controller as Player_Controller
 # import objects
-from Game.Modules.Main_Game.game_objects import earth_grid
+from Game.Modules.Main_Game.game_objects import earth_grid1
 
 Planet_Menu_Options = {
     1: 'Return to Main Menu',
