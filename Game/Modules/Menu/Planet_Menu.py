@@ -48,9 +48,11 @@ def planet_menu(game_player, planet):
         FurnaceMenu.furnace_menu(planet)
     elif choice == 4:
         while True:
+            print("DEBUG: map size =", len(Player_Controller.fetch_grid(game_player.planet)), "rows x", len(Player_Controller.fetch_grid(game_player.planet)[0]), "cols")
+
             Planet_Controller.fetch_planet_obj(game_player.planet).visual_grid()
             game_player.movement(Player_Controller.fetch_grid(game_player.planet), Player_Controller.fetch_planet_obj(game_player.planet))  
-
+            print("DEBUG: map size =", len(Player_Controller.fetch_grid(game_player.planet)), "rows x", len(Player_Controller.fetch_grid(game_player.planet)[0]), "cols")
     else:
         print("Invalid option selected.")
     print("What would you like to do?")
