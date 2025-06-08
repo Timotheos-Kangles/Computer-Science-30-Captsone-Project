@@ -55,7 +55,7 @@ def planet_menu(game_player, planet):
                 print(f"Players current planet is: {game_player.planet}")
                 print(f"Players current object is: {Planet_Controller.fetch_planet_obj(game_player.planet)} ")
                 print("DEBUG: About to call fetch_planet_obj")
-                Planet_Controller.fetch_planet_obj(game_player.planet).visual_grid()
+                Player_Controller.fetch_planet_obj(game_player.planet).visual_grid()
                 game_player.movement(Player_Controller.fetch_grid(game_player.planet), Player_Controller.fetch_planet_obj(game_player.planet))  
                 #print("DEBUG: map size =", len(Player_Controller.fetch_grid(game_player.planet)), "rows x", len(Player_Controller.fetch_grid(game_player.planet)[0]), "cols")
         else:
