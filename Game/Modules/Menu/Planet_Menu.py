@@ -30,40 +30,45 @@ Planet_Menu_Options = {
 }
 
 def planet_menu(game_player, planet):
-    print(f"Welcome to {planet} Menu!")
-    print(UtilVars.spacer)
-    
-    for key, option in Planet_Menu_Options.items():
-        print(f"{key} | {option}")
-    choice = int(input("Please select an option: "))
 
-    if choice == 1:
-        #MenuController.fetch_menu("Main Menu")
-        return "Main Menu"
-    elif choice == 2:
-        #ShopMenu.shop_menu(planet)
-        ShopMenu.shop_menu(planet, game_player)
-    elif choice == 3:
-        #FurnaceMenu.furnace_menu(planet)
-        FurnaceMenu.furnace_menu(planet)
-    elif choice == 4:
-        while True:
-            print("DEBUG: map size =", len(Player_Controller.fetch_grid(game_player.planet)), "rows x", len(Player_Controller.fetch_grid(game_player.planet)[0]), "cols")
+    if game_player.alive:
+        print(f"Welcome to {planet} Menu!")
+        print(UtilVars.spacer)
 
-            Planet_Controller.fetch_planet_obj(game_player.planet).visual_grid()
-            game_player.movement(Player_Controller.fetch_grid(game_player.planet), Player_Controller.fetch_planet_obj(game_player.planet))  
-            print("DEBUG: map size =", len(Player_Controller.fetch_grid(game_player.planet)), "rows x", len(Player_Controller.fetch_grid(game_player.planet)[0]), "cols")
-    else:
-        print("Invalid option selected.")
-    print("What would you like to do?")
-    for key, option in Planet_Menu_Options.items():
-        print(f"{key} | {option}")
-    
-    try:
+        for key, option in Planet_Menu_Options.items():
+            print(f"{key} | {option}")
         choice = int(input("Please select an option: "))
-    except ValueError:
-        print("That's not a number.")
-        return
+
+        if choice == 1:
+            #MenuController.fetch_menu("Main Menu")
+            return "Main Menu"
+        elif choice == 2:
+            #ShopMenu.shop_menu(planet)
+            ShopMenu.shop_menu(planet, game_player)
+        elif choice == 3:
+            #FurnaceMenu.furnace_menu(planet)
+            FurnaceMenu.furnace_menu(planet)
+        elif choice == 4:
+            game_player.is_moving = True
+            while game_player.is_moving:
+                #print("DEBUG: map size =", len(Player_Controller.fetch_grid(game_player.planet)), "rows x", len(Player_Controller.fetch_grid(game_player.planet)[0]), "cols")
+                print(f"Players current planet is: {game_player.planet}")
+                print(f"Players current object is: {Planet_Controller.fetch_planet_obj(game_player.planet)} ")
+                print("DEBUG: About to call fetch_planet_obj")
+                Planet_Controller.fetch_planet_obj(game_player.planet).visual_grid()
+                game_player.movement(Player_Controller.fetch_grid(game_player.planet), Player_Controller.fetch_planet_obj(game_player.planet))  
+                #print("DEBUG: map size =", len(Player_Controller.fetch_grid(game_player.planet)), "rows x", len(Player_Controller.fetch_grid(game_player.planet)[0]), "cols")
+        else:
+            print("Invalid option selected.")
+        print("What would you like to do?")
+        for key, option in Planet_Menu_Options.items():
+            print(f"{key} | {option}")
+
+        try:
+            choice = int(input("Please select an option: "))
+        except ValueError:
+            print("That's not a number.")
+            return
     
     '''
     if choice == 1:

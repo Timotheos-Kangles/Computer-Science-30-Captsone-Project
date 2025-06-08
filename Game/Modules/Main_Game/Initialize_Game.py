@@ -9,7 +9,7 @@ sys.path.append(str(root_dir))
 import Game.Data.Data_Files.Player_Data as Player
 
 # Import shared game objects
-from Game.Modules.Main_Game.game_objects import earth_obj, mars_obj, player
+from Game.Modules.Main_Game.game_objects import player
 
 # Import Utilities
 import Game.Utils.Util_Functions as Util_Functions
@@ -29,33 +29,35 @@ def Game_Menu(game_player):
     
 
 
-    print(f"Your planet is: {game_player.planet}")
-    print("Please select an option from the menu below:")
+
+    if game_player.alive:
+        print(f"Your planet is: {game_player.planet}")
+        print("Please select an option from the menu below:")
 
 
-    for Option in Main_Menu_Options:
-        print(f"{Option} | {Main_Menu_Options[Option]}")
+        for Option in Main_Menu_Options:
+            print(f"{Option} | {Main_Menu_Options[Option]}")
 
-    try:    
-        choice = int(input("Please select an option: "))
-    except:
-        print("That's not a number.")
-        return True  # Continue loop
+        try:    
+            choice = int(input("Please select an option: "))
+        except:
+            print("That's not a number.")
+            return True  # Continue loop
 
-    # Conditional Statements
-    if choice == 1:
-        print("Starting Game...")
-        MenuController.fetch_menu("Planet Menu", game_player, game_player.planet)
-    elif choice == 2:
-        MenuController.fetch_menu("Planet Selection", game_player, game_player.planet)
-    elif choice == 3:
-        MenuController.fetch_menu("Shop", game_player, game_player.planet)
-    elif choice == 3:
-        print("Opening Casino...")
-        print("Casino is not implemented yet.")
-    elif choice == 5:
-        print("Exiting Game...")
-        return False  # Exit loop
+        # Conditional Statements
+        if choice == 1:
+            print("Starting Game...")
+            MenuController.fetch_menu("Planet Menu", game_player, game_player.planet)
+        elif choice == 2:
+            MenuController.fetch_menu("Planet Selection", game_player, game_player.planet)
+        elif choice == 3:
+            MenuController.fetch_menu("Shop", game_player, game_player.planet)
+        elif choice == 3:
+            print("Opening Casino...")
+            print("Casino is not implemented yet.")
+        elif choice == 5:
+            print("Exiting Game...")
+            return False  # Exit loop
 
     
     return True

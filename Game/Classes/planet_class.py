@@ -40,7 +40,7 @@ class Planet():
         self.visualize_grid = []
     
     def create_grid(self, rows, cols):
-        print(f"DEBUG: creating grid with rows={rows}, cols={cols} ... ")
+        #print(f"DEBUG: creating grid with rows={rows}, cols={cols} ... ")
         self.grid = []  # Reset grid
         for i in range(rows):
             self.grid.append([])
@@ -63,11 +63,7 @@ class Planet():
         # Set player position
         self.visualize_grid[pl_y][pl_x] = "P"
         return self.visualize_grid
-    def planet_event(self):
-        player = PClass.player_class()
-        
-        if player.currency > 500:
-            print("Player has more than 500 currency")
+
 
 
 

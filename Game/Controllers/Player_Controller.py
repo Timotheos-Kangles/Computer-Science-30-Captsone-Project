@@ -33,14 +33,18 @@ def fetch_grid(planet):
     if planet == "Earth":
         from Game.Modules.Main_Game.game_objects import earth_grid1
         return earth_grid1
+    elif planet == "Mars":
+        from Game.Modules.Main_Game.game_objects import mars_grid1
+        return mars_grid1
 
 def fetch_planet_obj(planet):
     if planet == "Earth":
         from Game.Modules.Main_Game.game_objects import earth_obj
         return earth_obj
-    elif planet == "Mars":
+    if planet == "Mars":
         from Game.Modules.Main_Game.game_objects import mars_obj
+        print(f"DEBUG: Returning mars_obj: {mars_obj}")
         return mars_obj
     else:
-        print("Planet not found.")
+        print(f"Planet {planet} not found.")
         return None

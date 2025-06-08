@@ -11,7 +11,7 @@ import random
 import Game.Controllers.Planet_Controller as PlanetController
 import Game.Controllers.Player_Controller as Player_Controller
 import Game.Utils.Util_Functions as Util_Functions
-print('RUnning script')
+
 class Player_obj():
     def __init__(self):
         self.currency = Player.Data['Currency']
@@ -23,10 +23,11 @@ class Player_obj():
         self.planet = Player.Data['Current Planet']
         self.unlocked_planets = Player.Data['Unlocked Planets']
         self.alive = True # Player status so game ends when player dies
+        self.is_moving = False
     def movement(self, map_parameter, planet_obj):
 
-        while True:
-            print("DEBUG before movement: map size =", len(map_parameter), "rows x", len(map_parameter[0]), "cols")
+        while self.is_moving:
+            #print("DEBUG before movement: map size =", len(map_parameter), "rows x", len(map_parameter[0]), "cols")
             print(f"Player Coordinates: ({self.pl_x}, {self.pl_y})")
             planet_obj.update_player_on_grid(self.pl_x, self.pl_y)
             planet_obj.visual_grid()
@@ -43,7 +44,7 @@ class Player_obj():
             elif choice == 'm':
                 self.mine_tile()
             elif choice == 'back':
-                break
+                self.is_moving = False
             else:
                 print('Invalid input. Please use W, A, S, or D to move.')
                 pass
@@ -72,10 +73,11 @@ class Player_obj():
         # implement rarity of ores
 
         if oil_explosion_chance > random.randint(0, 100):
-            print("Oil explosion! You lost some health.")
-            self.health -= 10
+            print("Oil explosion! You lost some health. Buy some items from the med store to heal up.")
+            self.health -= 10 
             if self.health <= 0:
                 print("You have died. Game over.")
+                exit()
                 self.alive = False
                 return False
         else:
