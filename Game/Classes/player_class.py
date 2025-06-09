@@ -44,6 +44,8 @@ class Player_obj():
                 self.pl_x += 1
             elif choice == 'm':
                 self.mine_tile()
+            elif choice == 'back':
+                self.is_moving = False
             else:
                 print('Invalid input. Please use W, A, S, or D to move.')
                 pass
@@ -77,36 +79,34 @@ class Player_obj():
             if self.health <= 0:
                 print("You have died. Game over.")
                 exit()
-                self.alive = False
-                return False
         else:
             mined_ore = random.choice(ore_list)
-            #mined_amount = None
+            mined_amount = None
             
 
-            # implement price of pickaxe into yield
+                # implement price of pickaxe into yield
 
-        if len(self.inventory['Pickaxes']) != 0 or len(self.inventory['Drills']) != 0:
-            print('The player has a pickaxe or a drill. we can mine.')
-            if len(self.inventory["Drills"]) == 0: # then the player has no drills so we will look at the latest purchased pickaxe
-                if self.inventory["Pickaxes"][-1] == "Wooden Pickaxe":                # at the end of the list (index -1)
-                    mined_amount = 1
-                elif self.inventory["Pickaxes"][-1] == "Iron Pickaxe":
-                    mined_amount = 2
-                elif self.inventory["Pickaxes"][-1] == "Golden Pickaxe":
-                    mined_amount = 3
+            if len(self.inventory['Pickaxes']) != 0 or len(self.inventory['Drills']) != 0:
+                print('The player has a pickaxe or a drill. we can mine.')
+                if len(self.inventory["Drills"]) == 0: # then the player has no drills so we will look at the latest purchased pickaxe
+                    if self.inventory["Pickaxes"][-1] == "Wooden Pickaxe":                # at the end of the list (index -1)
+                        mined_amount = 1
+                    elif self.inventory["Pickaxes"][-1] == "Iron Pickaxe":
+                        mined_amount = 2
+                    elif self.inventory["Pickaxes"][-1] == "Golden Pickaxe":
+                        mined_amount = 3
+                else:
+                    if self.inventory["Drills"][-1] == "Basic Drill":
+                        mined_amount = 10
+                    elif self.inventory["Drills"][-1] == "Advanced Drill":
+                        mined_amount = 20
+
+                # add to inventory
+                print(f"DEBUG: mined_ore = {mined_ore}, mined_amount = {mined_amount}")
+                self.inventory['Ores'][mined_ore]['Amount'] += mined_amount
+                print(f"You mined {mined_amount} {mined_ore}! and now have {self.inventory['Ores'][mined_ore]['Amount']} in your inventory.")
             else:
-                if self.inventory["Drills"][-1] == "basic drill":
-                    mined_amount = 10
-                elif self.inventory["Drills"][-1] == "advanced drill":
-                    mined_amount = 20
-
-            # add to inventory
-
-            self.inventory['Ores'][mined_ore]['Amount'] += mined_amount
-            print(f"You mined {mined_amount} {mined_ore}!")
-        else:
-            print("You don't have any pickaxes or drills! Go buy some at the shop!")
+                print("You don't have any pickaxes or drills! Go buy some at the shop!")
 
         #Util_Functions.debug_player_data(self)
             

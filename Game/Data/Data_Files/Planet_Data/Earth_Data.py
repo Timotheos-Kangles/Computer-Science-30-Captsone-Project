@@ -5,9 +5,14 @@ import Game.Utils.Util_Functions
 Ores = {
     "Blank Ore": {
         "Sell Price": 0,
-        "Rarity": 5,  # 1-5
+        "Rarity": 5,  # 1-10
         "Description": "A blank ore that can be used to create various items."
-    }
+    },
+    "Copper Ore": {
+        "Sell Price": 5,
+        "Rarity": 5,  # 1-10
+        "Description": "A common ore used for crafting basic items."
+    },
 }
 
 Tools = {

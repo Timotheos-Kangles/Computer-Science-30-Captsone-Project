@@ -31,7 +31,7 @@ Planet_Menu_Options = {
 
 def planet_menu(game_player, planet):
 
-    if game_player.alive:
+    while True:
         print(f"Welcome to {planet} Menu!")
         print(UtilVars.spacer)
 
@@ -47,7 +47,7 @@ def planet_menu(game_player, planet):
             ShopMenu.shop_menu(planet, game_player)
         elif choice == 3:
             #FurnaceMenu.furnace_menu(planet)
-            FurnaceMenu.furnace_menu(planet)
+            FurnaceMenu.furnace_menu(game_player)
         elif choice == 4:
             game_player.is_moving = True
             while game_player.is_moving:
@@ -64,13 +64,14 @@ def planet_menu(game_player, planet):
         for key, option in Planet_Menu_Options.items():
             print(f"{key} | {option}")
 
+'''
         try:
             choice = int(input("Please select an option: "))
         except ValueError:
             print("That's not a number.")
             return
-    
-    '''
+'''    
+'''
     if choice == 1:
         MenuController.fetch_menu("Main Menu")
     elif choice == 2:
@@ -79,4 +80,4 @@ def planet_menu(game_player, planet):
         FurnaceMenu.furnace_menu(planet)
     else:
         print("Invalid option. Please try again.")
-    '''
+'''

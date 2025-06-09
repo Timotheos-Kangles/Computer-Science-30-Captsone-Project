@@ -1,3 +1,5 @@
+'''
+this furnace menu is the wrong one, but I'll leave it here.
 import sys
 from pathlib import Path
 
@@ -9,19 +11,19 @@ import Game.Utils.Util_Variables as UtilVars
 
 # Import Data Files
 import Game.Data.Data_Files.Player_Data as Player
-import Game.Data.Data_Files.Ore_Data as OreData
+import Game.Data.Data_Files.Ore_Data as Ore_Data
 
 
 menu_options = {
     1: 'Smelt Ore',
 }
 
-def smelt_ore(ore, amount):
+def smelt_ore(ore, amount, game_player): # game_player will be a player object, reference its inventory.
     ore_var_name = ore.replace(" ", "")
     
-    if ore in Player.Data["Inventory"]["Ores"]:
-        if Player.Data["Inventory"]["Ores"][ore]["Amount"] >= amount:
-            ore_data = getattr(OreData, ore_var_name)
+    if ore in game_player.inventory["Ores"]:
+        if game_player.inventory["Ores"][ore]["Amount"] >= amount:
+            ore_data = getattr(Ore_Data, ore_var_name)
             if ore_data:
                 smelting_time = ore_data["Smelting Time"]
                 smelting_ratio = ore_data["Smelting Ratio"]
@@ -29,8 +31,8 @@ def smelt_ore(ore, amount):
                 bar_name = list(smelting_yield.keys())[0]
                 bars_produced = amount // smelting_ratio
 
-                Player.Data["Inventory"]["Ores"][ore]["Amount"] -= amount
-                Player.Data["Inventory"]["Bars"][bar_name]["Amount"] += bars_produced
+                game_player.inventory["Ores"][ore]["Amount"] -= amount
+                game_player.inventory["Bars"][bar_name]["Amount"] += bars_produced
 
                 print(UtilVars.spacer)
                 print(f"Smelting {amount} of {ore}...")
@@ -39,13 +41,13 @@ def smelt_ore(ore, amount):
             else:
                 print(f"{ore} data not found in ore database.")
         else:
-            current_amount = Player.Data["Inventory"]["Ores"][ore]["Amount"]
+            current_amount = game_player.inventory["Ores"][ore]["Amount"]
             print(f"Not enough {ore}. You have {current_amount} but need {amount}.")
     else:
         print(f"{ore} is not in your inventory.")
     print(UtilVars.spacer)
 
-def furnace_menu():
+def furnace_menu(game_player):
     print(UtilVars.spacer)
     print(f"Welcome to the Furnace!")
     print("Here are the available Options:")
@@ -62,7 +64,7 @@ def furnace_menu():
             print(UtilVars.spacer)
             ore = input("Enter the ore you want to smelt: ")
             amount = int(input("Enter the amount of ore you want to smelt: "))
-            smelt_ore(ore, amount)
+            smelt_ore(ore, amount, game_player)
         else:
             print("Invalid option.")
 
@@ -70,4 +72,4 @@ def furnace_menu():
 furnace_menu("Earth")  # Example
 
 
-
+'''
