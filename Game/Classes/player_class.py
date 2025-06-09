@@ -7,11 +7,12 @@ sys.path.append(str(root_dir))
 
 
 import Game.Data.Data_Files.Player_Data as Player
+import Game.Data.Data_Files.Planet_Data.Earth_Data as Earth_Data
 import random
 import Game.Controllers.Planet_Controller as PlanetController
 import Game.Controllers.Player_Controller as Player_Controller
 import Game.Utils.Util_Functions as Util_Functions
-print('RUnning script')
+
 class Player_obj():
     def __init__(self):
         self.currency = Player.Data['Currency']
@@ -23,10 +24,11 @@ class Player_obj():
         self.planet = Player.Data['Current Planet']
         self.unlocked_planets = Player.Data['Unlocked Planets']
         self.alive = True # Player status so game ends when player dies
+        self.is_moving = False
     def movement(self, map_parameter, planet_obj):
 
-        while True:
-            print("DEBUG before movement: map size =", len(map_parameter), "rows x", len(map_parameter[0]), "cols")
+        while self.is_moving:
+            #print("DEBUG before movement: map size =", len(map_parameter), "rows x", len(map_parameter[0]), "cols")
             print(f"Player Coordinates: ({self.pl_x}, {self.pl_y})")
             planet_obj.update_player_on_grid(self.pl_x, self.pl_y)
             planet_obj.visual_grid()
@@ -56,7 +58,7 @@ class Player_obj():
                 self.pl_y = len(map_parameter) - 1
             
     def mine_tile(self):
-        oil_explosion_chance = 80 # percent chance of explosion
+        oil_explosion_chance = 10 # percent chance of explosion
         player_planet_data = PlanetController.fetch_planet_data(self.planet)
         ore_list = list(player_planet_data.Ores.keys())
         for ore in player_planet_data.Ores.keys():
@@ -70,17 +72,43 @@ class Player_obj():
         # implement rarity of ores
 
         if oil_explosion_chance > random.randint(0, 100):
-            print("Oil explosion! You lost some health.")
-            self.health -= 10
+            print("Oil explosion! You lost some health. Buy some items from the med store to heal up.")
+            self.health -= 10 
             if self.health <= 0:
                 print("You have died. Game over.")
+                exit()
                 self.alive = False
                 return False
         else:
             mined_ore = random.choice(ore_list)
-            print(f"You mined {mined_ore}!")
-            self.inventory['Ores'][mined_ore]['Amount'] += 1
-        Util_Functions.debug_player_data(self)
+            #mined_amount = None
+            
+
+            # implement price of pickaxe into yield
+
+        if len(self.inventory['Pickaxes']) != 0 or len(self.inventory['Drills']) != 0:
+            print('The player has a pickaxe or a drill. we can mine.')
+            if len(self.inventory["Drills"]) == 0: # then the player has no drills so we will look at the latest purchased pickaxe
+                if self.inventory["Pickaxes"][-1] == "Wooden Pickaxe":                # at the end of the list (index -1)
+                    mined_amount = 1
+                elif self.inventory["Pickaxes"][-1] == "Iron Pickaxe":
+                    mined_amount = 2
+                elif self.inventory["Pickaxes"][-1] == "Golden Pickaxe":
+                    mined_amount = 3
+            else:
+                if self.inventory["Drills"][-1] == "basic drill":
+                    mined_amount = 10
+                elif self.inventory["Drills"][-1] == "advanced drill":
+                    mined_amount = 20
+
+            # add to inventory
+
+            self.inventory['Ores'][mined_ore]['Amount'] += mined_amount
+            print(f"You mined {mined_amount} {mined_ore}!")
+        else:
+            print("You don't have any pickaxes or drills! Go buy some at the shop!")
+
+        #Util_Functions.debug_player_data(self)
             
 
 
