@@ -24,6 +24,7 @@ Main_Menu_Options = {
 def initialize_game():
     Player.Data["Name"] = input("Please enter your name: ")
     print(f"Welcome to the Game, {Player.Data['Name']}!")
+    
 def Game_Menu(game_player):
     import Game.Controllers.Menu_Controller as MenuController
     

@@ -31,12 +31,20 @@ def smelt_ore(ore, amount, game_player):
                 return
         
             if ore in ore_data:
+
+                '''
                 smelting_time = ore_data["Smelting Time"]
                 smelting_ratio = ore_data["Smelting Ratio"]
                 smelting_yield = ore_data["Smelting Yield"]
                 bar_name = list(smelting_yield.keys())[0]
                 bars_produced = amount // smelting_ratio
+                '''
 
+                smelting_time = Ore_Data.dict_ore_data[ore]["Smelting Time"]
+                smelting_ratio = Ore_Data.dict_ore_data[ore]["Smelting Ratio"]
+                smelting_yield = Ore_Data.dict_ore_data[ore]["Smelting Yield"]
+                bar_name = list((smelting_yield.keys()))[0]
+                bars_produced = amount/smelting_ratio
                 # Update inventory
                 game_player.inventory["Ores"][ore]["Amount"] -= amount
                 game_player.inventory["Bars"][bar_name]["Amount"] += bars_produced

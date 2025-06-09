@@ -13,7 +13,7 @@ import Game.Modules.Menu.Tools_Menu as ToolShop
 import Game.Archive.Weapons_Menu as WeaponShop
 import Game.Modules.Menu.Furnace_Menu as FurnaceMenu
 import Game.Modules.Menu.Shop_Menu as ShopMenu
-
+import Game.Modules.Menu.Sell_Menu as Sell_Menu
 # Import Controllers
     #import Game.Controllers.Menu_Controller as MenuController
 import Game.Controllers.Planet_Controller as Planet_Controller
@@ -26,6 +26,7 @@ Planet_Menu_Options = {
     2: 'Shop',
     3: 'Furnace',
     4: 'Movement',
+    5: 'Sell Refined Ores'
 
 }
 
@@ -58,6 +59,8 @@ def planet_menu(game_player, planet):
                 Player_Controller.fetch_planet_obj(game_player.planet).visual_grid()
                 game_player.movement(Player_Controller.fetch_grid(game_player.planet), Player_Controller.fetch_planet_obj(game_player.planet))  
                 #print("DEBUG: map size =", len(Player_Controller.fetch_grid(game_player.planet)), "rows x", len(Player_Controller.fetch_grid(game_player.planet)[0]), "cols")
+        elif choice == 5:
+            Sell_Menu.sell_ore(game_player)
         else:
             print("Invalid option selected.")
         print("What would you like to do?")
