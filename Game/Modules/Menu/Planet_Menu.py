@@ -53,6 +53,9 @@ def planet_menu(game_player, planet):
             Planet_Controller.fetch_planet_obj(game_player.planet).visual_grid()
             game_player.movement(Player_Controller.fetch_grid(game_player.planet), Player_Controller.fetch_planet_obj(game_player.planet))  
             print("DEBUG: map size =", len(Player_Controller.fetch_grid(game_player.planet)), "rows x", len(Player_Controller.fetch_grid(game_player.planet)[0]), "cols")
+            if input('Enter "back" if you want to return to the menu: ').lower() == 'back':
+                print("Returning to Planet Menu...")
+                break
     else:
         print("Invalid option selected.")
     print("What would you like to do?")

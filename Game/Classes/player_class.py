@@ -42,8 +42,6 @@ class Player_obj():
                 self.pl_x += 1
             elif choice == 'm':
                 self.mine_tile()
-            elif choice == 'back':
-                break
             else:
                 print('Invalid input. Please use W, A, S, or D to move.')
                 pass
