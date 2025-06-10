@@ -66,7 +66,7 @@ def smelt_ore(ore, amount, game_player):
 def furnace_menu(game_player):
     print(UtilVars.spacer)
     print(f"Welcome to the Furnace!")
-    print("Here are the available Options:")
+    print("Which ore would you like to smelt")
     print(UtilVars.spacer)
 
     for key, option in menu_options.items():

@@ -31,15 +31,16 @@ def sell_ore(game_player):
                 pass
         elif int(choice)-1 in range(len(list(game_player.inventory["Bars"].keys()))):
             choice = int(choice)
-            if game_player.inventory["Bars"][list(game_player.inventory["Bars"])[choice-1]]["Amount"] > 0: # then the player has enough bars
-                amount = game_player.inventory["Bars"][list(game_player.inventory["Bars"])[choice-1]]["Amount"]
-                value = game_player.inventory["Bars"][list(game_player.inventory["Bars"])[choice-1]]["Value"]
+            player_bar = list(game_player.inventory["Bars"].keys())[choice-1]
+            if game_player.inventory["Bars"][player_bar]["Amount"] > 0: # then the player has enough bars
+                amount = game_player.inventory["Bars"][player_bar]["Amount"]
+                value = game_player.inventory["Bars"][player_bar]["Value"]
                 sell_amount = amount*value
 
                 game_player.currency += sell_amount
-                game_player.inventory["Bars"][list(game_player.inventory["Bars"])[choice-1]]["Amount"] = 0
-                print(f"You sold {amount} {game_player.inventory["Bars"][list(game_player.inventory["Bars"])[choice-1]]}(s) and got {sell_amount} money")
+                game_player.inventory["Bars"][player_bar]["Amount"] = 0
+                print(f"You sold {amount} {game_player.inventory['Bars'][player_bar]}(s) and got {sell_amount} money")
             else:
-                print(f"You don't have any {list(game_player.inventory["Bars"])[choice-1]}(s)")
+                print(f"You don't have any {player_bar}(s)")
         else:
             print('invalid option')
