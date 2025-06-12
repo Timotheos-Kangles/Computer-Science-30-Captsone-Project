@@ -3,7 +3,22 @@ Ores = {
         "Sell Price": 0,
         "Rarity": 0,  # 1-5
         "Description": "A blank ore that can be used to create various items."
-    }
+    },
+    "Titanium Ore": {
+        "Sell Price": 40,
+        "Rarity": 6,  # 1-5
+        "Description": "A blank ore that can be used to create various items."
+    },
+    "Niobium Ore": {
+        "Sell Price": 100,
+        "Rarity": 3,  # 1-5
+        "Description": "A blank ore that can be used to create various items."
+    },
+    "Martian Ore": {
+        "Sell Price": 100,
+        "Rarity": 2,  # 1-5
+        "Description": "A blank ore that can be used to create various items."
+    },
 }
 
 Tools = {

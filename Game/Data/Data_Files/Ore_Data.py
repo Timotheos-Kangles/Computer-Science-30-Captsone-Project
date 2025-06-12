@@ -7,13 +7,30 @@ dict_ore_data = {
             "Copper Bar": 1  
         },
     },
-    "Blank Ore": {
+    "Titanium Ore": {
         "Value": 0,
-        "Smelting Time": 1,
-        "Smelting Ratio": 1,
+        "Smelting Time": 10,
+        "Smelting Ratio": 3,
         "Smelting Yield": {
-            "Blank Bar": 1
+            "Titanium Bar": 1
         }
-    }
+    },
+    "Niobium Ore": {
+        "Value": 0,
+        "Smelting Time": 15,
+        "Smelting Ratio": 3,
+        "Smelting Yield": {
+            "Niobium Bar": 1
+        }
+    },
+    "Martian Ore": {
+        "Value": 0,
+        "Smelting Time": 20,
+        "Smelting Ratio": 4,
+        "Smelting Yield": {
+            "Martian Bar": 1
+        }
+    },
+
 }
 

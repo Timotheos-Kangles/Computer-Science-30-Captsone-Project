@@ -28,35 +28,46 @@ shop_menu_options = {
 }
 
 def shop_menu(planet, player):#, planet_tools, planet_weapons):
-    print(f"Welcome to the {planet}'s best shop! What would you like to buy?")
-    for key, option in shop_menu_options.items():
-        print(f'{key} | {option}')
-    try:
-        choice = int(input("What shop would you like to open?: "))
-        print(UtilVars.spacer)
-    except:
-        print("error")
-    if choice == 1:
-        if planet == "Earth":
-            ToolShop.tool_shop_menu("Earth", "Pickaxe", EarthData.Tools["Pickaxes"], player)
-        elif planet == "Mars":
-            ToolShop.tool_shop_menu("Mars", "Pickaxe", MarsData.Tools["Pickaxes"], player)
-    elif choice == 2:
-        if planet == "Earth":
-            ToolShop.tool_shop_menu("Earth", "Drill", EarthData.Tools["Drills"], player)
-        elif planet == "Mars":
-            ToolShop.tool_shop_menu("Mars", "Drill", MarsData.Tools["Drills"], player)
-    elif choice == 3:
-        if planet == "Earth":
-            ToolShop.tool_shop_menu(planet, "Weapons", EarthData.Tools["Weapons"], player)
-        elif planet == "Mars":
-            ToolShop.tool_shop_menu(planet, "Weapons", MarsData.Tools["Weapons"], player)
-    elif choice == 4:
-        ToolShop.tool_shop_menu(planet, "Medi", EarthData.Tools["Medi-Tools"], player)
-    else:
-        print("Invalid choice, please try again.")
-        shop_menu(planet, player)#, planet_tools, planet_weapons)
 
+    while True:
+        print(f"Welcome to the {planet}'s best shop! What would you like to buy?")
+        print(f"You have {player.currency} money")
+        for key, option in shop_menu_options.items():
+            print(f'{key} | {option}')
+
+        choice = (input("What shop would you like to open?: "))
+        print(UtilVars.spacer)
+        
+        if type(choice) == str and not choice.isnumeric():
+            if choice == 'back':
+                break
+            else:
+                print('Invalid Option')
+        elif int(choice)-1 in range(len(list(shop_menu_options.keys()))):
+            choice = int(choice)
+            if choice == 1:
+                if planet == "Earth":
+                    ToolShop.tool_shop_menu("Earth", "Pickaxe", EarthData.Tools["Pickaxes"], player)
+                elif planet == "Mars":
+                    ToolShop.tool_shop_menu("Mars", "Pickaxe", MarsData.Tools["Pickaxes"], player)
+            elif choice == 2:
+                if planet == "Earth":
+                    ToolShop.tool_shop_menu("Earth", "Drill", EarthData.Tools["Drills"], player)
+                elif planet == "Mars":
+                    ToolShop.tool_shop_menu("Mars", "Drill", MarsData.Tools["Drills"], player)
+            elif choice == 3:
+                if planet == "Earth":
+                    ToolShop.tool_shop_menu(planet, "Weapons", EarthData.Tools["Weapons"], player)
+                elif planet == "Mars":
+                    ToolShop.tool_shop_menu(planet, "Weapons", MarsData.Tools["Weapons"], player)
+            elif choice == 4:
+                ToolShop.tool_shop_menu(planet, "Medi", EarthData.Tools["Medi-Tools"], player)
+            elif choice == 'back':
+                break
+            elif choice == 'error':
+                print("Invalid choice, please try again.")
+        else:
+            print('Invalid')
         
 
 

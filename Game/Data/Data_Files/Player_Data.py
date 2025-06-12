@@ -1,6 +1,6 @@
 Data = {
     "Name": None,
-    "Currency": 500000,
+    "Currency": 0,
     "Health": 100,
 
     # Player Planets
@@ -14,24 +14,52 @@ Data = {
         "Drills": [],  # Fixed spelling from "Drils"
         "Weapons": [],
         "Ores": {
+            # earth
             "Blank Ore": {
-                "Amount": 200,
-                "Value": 0
+                "Amount": 0,
             },
             "Copper Ore": {
                 "Amount": 0,
-                "Value": 5
-            }
+            },
+
+            # mars
+
+            "Titanium Ore": {
+                "Amount": 0,
+            },
+            "Niobium Ore": {
+                "Amount": 0,
+            },
+            "Martian Ore": {
+                "Amount": 0,
+            },
         },
         "Bars": {
+            # earth
             "Copper Bar": {
-                "Amount": 200,
+                "Amount": 0,
                 "Value": 10
             },
             "Blank Bar": {
                 "Amount": 0,
                 "Value": 0
-            }
+            
+            # mars
+            },
+            "Titanium Bar": {
+                "Amount": 0,
+                "Value":50
+            },
+            "Niobium Bar": {
+                "Amount": 0,
+                "Value": 100
+            },
+            "Martian Bar": {
+                "Amount": 0,
+                "Value": 200
+            },
+
+
         }
     }
 }

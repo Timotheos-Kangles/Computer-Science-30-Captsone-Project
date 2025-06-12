@@ -87,7 +87,7 @@ class Player_obj():
                 # implement price of pickaxe into yield
 
             if len(self.inventory['Pickaxes']) != 0 or len(self.inventory['Drills']) != 0:
-                print('The player has a pickaxe or a drill. we can mine.')
+                #print('The player has a pickaxe or a drill. we can mine.')
                 if len(self.inventory["Drills"]) == 0: # then the player has no drills so we will look at the latest purchased pickaxe
                     if self.inventory["Pickaxes"][-1] == "Wooden Pickaxe":                # at the end of the list (index -1)
                         mined_amount = 1
@@ -102,7 +102,7 @@ class Player_obj():
                         mined_amount = 20
 
                 # add to inventory
-                print(f"DEBUG: mined_ore = {mined_ore}, mined_amount = {mined_amount}")
+                #print(f"DEBUG: mined_ore = {mined_ore}, mined_amount = {mined_amount}")
                 self.inventory['Ores'][mined_ore]['Amount'] += mined_amount
                 print(f"You mined {mined_amount} {mined_ore}! and now have {self.inventory['Ores'][mined_ore]['Amount']} in your inventory.")
             else:

@@ -20,16 +20,30 @@ def planet_selection(game_player):
     
     try:
         choice = int(input("Select a planet to set as spawn: "))
-        if choice in range(1, len(Player.Data["Unlocked Planets"]) + 1):
+        if choice == 1:
             selected_planet = Player.Data["Unlocked Planets"][choice - 1]
             print(f"Traveling to {selected_planet}...")
             Player.Data["Current Planet"] = selected_planet
             game_player.planet = selected_planet
             print(Player.Data["Current Planet"])
             return selected_planet
+        elif choice == 2 and game_player.currency > 500:
+            selected_planet = Player.Data["Unlocked Planets"][choice - 1]
+            print(f"Traveling to {selected_planet}...")
+            Player.Data["Current Planet"] = selected_planet
+            game_player.planet = selected_planet
+            print(Player.Data["Current Planet"])
+            return selected_planet
+        elif choice == 3 and game_player.currency > 0:
+            selected_planet = Player.Data["Unlocked Planets"][choice - 1]
+            print(f"Traveling to {selected_planet}...")
+            Player.Data["Current Planet"] = selected_planet
+            game_player.planet = selected_planet
+            print(Player.Data["Current Planet"])
+            return selected_planet            
         else:
-            print("Invalid planet selection.")
-            return planet_selection()
+            print("Invalid planet selection. You need 2000 money to unlock the Moon and 4000 money to unlock Mars.")
+            return planet_selection(game_player)
     except ValueError:
         print("Please enter a valid number.")
-        return planet_selection()
+        return planet_selection(game_player)

@@ -67,6 +67,6 @@ if __name__ == "__main__":
     initialize_game()
     while True:
         Game_Menu(player)
-        Util_Functions.debug_player_data(player)
+        #Util_Functions.debug_player_data(player)
             
 

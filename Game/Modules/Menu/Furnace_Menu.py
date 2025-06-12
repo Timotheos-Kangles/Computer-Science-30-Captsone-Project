@@ -15,15 +15,15 @@ import Game.Data.Data_Files.Ore_Data as Ore_Data
 import Game.Controllers.Player_Controller as Player_Controller
 
 menu_options = {
-    1: 'Smelt Ore',
+    1: 'Blank Ore',
+    2: 'Copper Ore'
 }
 
 def smelt_ore(ore, amount, game_player):
     # Remove space and combine words for matching OreData variable names
-    ore_var_name = ore.replace(" ", "")
     
     if ore in list((game_player.inventory["Ores"]).keys()): # list of names of ores in inventory
-        if game_player.inventory["Ores"][ore]["Amount"] >= amount:                         # I was going to lowercase the ore, but that would break everything 
+        if game_player.inventory["Ores"][ore]["Amount"] > 0:                         # 
             try:
                 ore_data = list(Ore_Data.dict_ore_data.keys())
             except AttributeError:
@@ -32,19 +32,11 @@ def smelt_ore(ore, amount, game_player):
         
             if ore in ore_data:
 
-                '''
-                smelting_time = ore_data["Smelting Time"]
-                smelting_ratio = ore_data["Smelting Ratio"]
-                smelting_yield = ore_data["Smelting Yield"]
-                bar_name = list(smelting_yield.keys())[0]
-                bars_produced = amount // smelting_ratio
-                '''
-
                 smelting_time = Ore_Data.dict_ore_data[ore]["Smelting Time"]
                 smelting_ratio = Ore_Data.dict_ore_data[ore]["Smelting Ratio"]
                 smelting_yield = Ore_Data.dict_ore_data[ore]["Smelting Yield"]
                 bar_name = list((smelting_yield.keys()))[0]
-                bars_produced = amount/smelting_ratio
+                bars_produced = amount//smelting_ratio
                 # Update inventory
                 game_player.inventory["Ores"][ore]["Amount"] -= amount
                 game_player.inventory["Bars"][bar_name]["Amount"] += bars_produced
@@ -57,8 +49,7 @@ def smelt_ore(ore, amount, game_player):
             else:
                 print(f"{ore} data not found in ore database.")
         else:
-            current_amount = game_player.inventory["Ores"][ore]["Amount"]
-            print(f"Not enough {ore}. You have {current_amount} but need {amount}.")
+            print(f"You don't have any of that ore.")
     else:
         print(f"{ore} is not in your inventory.")
     print(UtilVars.spacer)
@@ -69,20 +60,32 @@ def furnace_menu(game_player):
     print("Which ore would you like to smelt")
     print(UtilVars.spacer)
 
+    '''
     for key, option in menu_options.items():
         print(f'{key} | {option}')
     print(UtilVars.spacer)
-    
-    choice = int(input("What option would you like to pick?: "))
-    if choice in range(1, len(menu_options) + 1):
-        selected_option = list(menu_options.keys())[choice - 1]
-        if selected_option == 1:
+    '''
+    while True:
+        for index, key in enumerate(list(game_player.inventory['Ores'].keys())):
+            print(f"{index+1} | {key}")
+        
+        choice = (input("What option would you like to pick?: "))
+        if type(choice) == str and not choice.isnumeric():
+            if choice == 'back':
+                break
+            else:
+                print('not an option')
+                pass
+        
+        elif int(choice)-1 in range(0, len(list(game_player.inventory['Ores'].keys()))+1):
+            choice = int(choice)
+            selected_option = list(list(game_player.inventory['Ores'].keys()))[choice - 1]
             print(UtilVars.spacer)
-            ore = input("Enter the ore you want to smelt (Type it with correct caps): ")
-            amount = int(input("Enter the amount of ore you want to smelt: "))
+            ore = selected_option
+            amount = game_player.inventory['Ores'][ore]['Amount']
             smelt_ore(ore, amount, game_player)
         else:
-            print("Invalid option.")
+            print('invalid')
 
 
 #furnace_menu("Earth")  # Example call to the furnace menu
