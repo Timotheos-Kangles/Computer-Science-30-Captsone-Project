@@ -15,20 +15,25 @@ import Game.Utils.Util_Variables as UtilVars
 # import initializated objects
 #   from Game.Modules.Main_Game.game_objects import earth_obj, mars_obj
 
+
 def fetch_unlocked_planets():
+    '''
+    gets the unlocked planets from the player data
+    '''
     for index, planet in enumerate(planet.keys(), 1):
         print(f"{index} | {planet}")
         print(UtilVars.spacer)
         choice = int(input("What planet would you like to select?: "))
     pass
 
+
 def fetch_planet_data(planet):
+    '''
+    Returns the correct planet data based on the planet name.
+    '''
     if planet == 'Earth':
         return Earth_Data
     elif planet == 'Mars':
         return Mars_Data
 
-def fetch_planet_obj(planet):
-    from Game.Modules.Main_Game.game_objects import earth_obj, mars_obj
-    if planet == 'Earth':
-        return earth_obj
+

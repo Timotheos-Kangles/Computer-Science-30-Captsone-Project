@@ -16,8 +16,14 @@ import Game.Modules.Menu.Furnace_Menu as FurnaceMenu
 import Game.Modules.Menu.Planet_Selection_menu as PlanetSelectMenu
 #import Game.Modules.Menu.Planet_Menu as Planet_Menu
 
+
 def fetch_menu(Menu, game_player, Planet): #=None):
+    '''
+    function for fetching the menu based on the Menu name.
+    Menu is the name of the menu, game_player is the player object,
+    and Planet is the name of the planet.
     
+    '''
     if Menu == "Shop":
         if Planet == "Earth":
             earth_tools = {

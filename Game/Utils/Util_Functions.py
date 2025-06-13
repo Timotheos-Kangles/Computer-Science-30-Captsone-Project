@@ -8,6 +8,7 @@ sys.path.append(str(root_dir))
 
 import Game.Data.Data_Files.Player_Data as Player
 
+
 def debug_player_data(player):
     '''
     function that prints all the player data to the console for debugging purposes.

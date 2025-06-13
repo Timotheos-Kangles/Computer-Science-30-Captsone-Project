@@ -14,10 +14,6 @@ import Game.Data.Data_Files.Ore_Data as Ore_Data
 # import controllers
 import Game.Controllers.Player_Controller as Player_Controller
 
-menu_options = {
-    1: 'Blank Ore',
-    2: 'Copper Ore'
-}
 
 def smelt_ore(ore, amount, game_player):
     '''
@@ -67,11 +63,6 @@ def furnace_menu(game_player):
     print("Which ore would you like to smelt")
     print(UtilVars.spacer)
 
-    '''
-    for key, option in menu_options.items():
-        print(f'{key} | {option}')
-    print(UtilVars.spacer)
-    '''
     while True:
         for index, key in enumerate(list(game_player.inventory['Ores'].keys())):
             print(f"{index+1} | {key}")

@@ -27,6 +27,7 @@ shop_menu_options = {
     5: 'Buy Storage' # Weapons for attack/defense
 }
 
+
 def shop_menu(planet, player):#, planet_tools, planet_weapons):
     '''
     General shop menu as a access point for all shops on the planet.
