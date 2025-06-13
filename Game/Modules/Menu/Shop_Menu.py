@@ -12,8 +12,8 @@ import Game.Data.Data_Files.Player_Data as Player
 
 # Import Menu Modules
 import Game.Modules.Menu.Tools_Menu as ToolShop
-import Game.Archive.Weapons_Menu as WeaponShop
-import Game.Modules.Menu.Storage_menu as StorageShop
+import Game.Modules.Menu.Weapons_Menu as WeaponShop
+
 
 # Import Data Files
 import Game.Data.Data_Files.Planet_Data.Earth_Data as EarthData
@@ -28,7 +28,9 @@ shop_menu_options = {
 }
 
 def shop_menu(planet, player):#, planet_tools, planet_weapons):
-
+    '''
+    General shop menu as a access point for all shops on the planet.
+    '''
     while True:
         print(f"Welcome to the {planet}'s best shop! What would you like to buy?")
         print(f"You have {player.currency} money")

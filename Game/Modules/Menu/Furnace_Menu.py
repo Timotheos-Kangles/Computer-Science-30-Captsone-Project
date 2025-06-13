@@ -20,7 +20,10 @@ menu_options = {
 }
 
 def smelt_ore(ore, amount, game_player):
-    # Remove space and combine words for matching OreData variable names
+    '''
+    smelts the ore and handles inventory updates. Ore is the type,
+    amount is how much ore the player has. Game_player is the player object.
+    '''
     
     if ore in list((game_player.inventory["Ores"]).keys()): # list of names of ores in inventory
         if game_player.inventory["Ores"][ore]["Amount"] > 0:                         # 
@@ -54,7 +57,11 @@ def smelt_ore(ore, amount, game_player):
         print(f"{ore} is not in your inventory.")
     print(UtilVars.spacer)
 
+
 def furnace_menu(game_player):
+    '''
+    Menu for furnace. Game_player is the player object.
+    '''
     print(UtilVars.spacer)
     print(f"Welcome to the Furnace!")
     print("Which ore would you like to smelt")

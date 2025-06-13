@@ -31,7 +31,10 @@ Planet_Menu_Options = {
 }
 
 def planet_menu(game_player, planet):
-
+    '''
+    Menu options for when the player is on a planet. Planet is the name of the planet
+    and game_player is the player object.
+    '''
     while True:
         print(f"Welcome to {planet} Menu!")
         print(UtilVars.spacer)
@@ -67,25 +70,3 @@ def planet_menu(game_player, planet):
             Sell_Menu.sell_ore(game_player)
         elif choice == 'error':
             print("Invalid option selected.")
-        '''
-        print("What would you like to do?")
-        for key, option in Planet_Menu_Options.items():
-            print(f"{key} | {option}")
-        '''
-'''
-        try:
-            choice = int(input("Please select an option: "))
-        except ValueError:
-            print("That's not a number.")
-            return
-'''    
-'''
-    if choice == 1:
-        MenuController.fetch_menu("Main Menu")
-    elif choice == 2:
-        MenuController.fetch_menu("Tools")
-    elif choice == 3:
-        FurnaceMenu.furnace_menu(planet)
-    else:
-        print("Invalid option. Please try again.")
-'''

@@ -14,6 +14,10 @@ import Game.Data.Data_Files.Player_Data as Player
 import Game.Controllers.Player_Controller as PlayerController
 
 def weapon_shop_menu(Planet, items):
+    '''
+    Handles the buying of weapons. Planet is the name of the planet,
+    items is a dictionary of items available for purchase.
+    '''
     print(f"Welcome to the {Planet} Weapons Shop!")
     print("Here are the available weapons:")
     print(UtilVars.spacer) 

@@ -39,6 +39,7 @@ Tools = {
             "Buy Price": 250,
             "Description": "An advanced drill that cuts through rock efficiently."
         }
+
     },
     "Weapons": {
         "Stone Sword": {

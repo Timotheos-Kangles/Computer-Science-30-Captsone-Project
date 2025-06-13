@@ -12,6 +12,10 @@ import Game.Data.Data_Files.Player_Data as Player
 
 
 def planet_selection(game_player):
+    '''
+    Function handles selecting a planet to set as spawn point. 
+    game_player is the player object.
+    '''
     print("Available Planets:")
     print(UtilVars.spacer)
     for index, planet in enumerate(Player.Data["Unlocked Planets"], 1):

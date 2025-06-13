@@ -25,8 +25,13 @@ class Player_obj():
         self.unlocked_planets = Player.Data['Unlocked Planets']
         self.alive = True # Player status so game ends when player dies
         self.is_moving = False
-    def movement(self, map_parameter, planet_obj):
 
+    def movement(self, map_parameter, planet_obj):
+        '''
+        Handles player movement on the grid. map_parameter is the grid of the planet
+        and planet_obj is the object of the planet that contains the grid and other methods.
+        This method handles movement and mining tiles.
+        '''
         while self.is_moving:
             #print("DEBUG before movement: map size =", len(map_parameter), "rows x", len(map_parameter[0]), "cols")
             print(f"Player Coordinates: ({self.pl_x}, {self.pl_y})")
@@ -60,6 +65,10 @@ class Player_obj():
                 self.pl_y = len(map_parameter) - 1
             
     def mine_tile(self):
+        '''
+        Mines the tile and handles oil explosion and pickaxe or drill type. 
+        Also handles ore rarity. 
+        '''
         oil_explosion_chance = 10 # percent chance of explosion
         player_planet_data = PlanetController.fetch_planet_data(self.planet)
         ore_list = list(player_planet_data.Ores.keys())
@@ -72,6 +81,8 @@ class Player_obj():
         #print('There might have been nothing in the list')
 
         # implement rarity of ores
+
+        print(f"Your health is: {self.health}")
 
         if oil_explosion_chance > random.randint(0, 100):
             print("Oil explosion! You lost some health. Buy some items from the med store to heal up.")
@@ -108,11 +119,3 @@ class Player_obj():
             else:
                 print("You don't have any pickaxes or drills! Go buy some at the shop!")
 
-        #Util_Functions.debug_player_data(self)
-            
-
-
-#print("Creating player...")
-#test_player_obj = Player_obj()
-#print("Player created.")
-#test_player_obj.mine_tile()

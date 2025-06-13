@@ -40,7 +40,10 @@ class Planet():
         self.visualize_grid = []
     
     def create_grid(self, rows, cols):
-        #print(f"DEBUG: creating grid with rows={rows}, cols={cols} ... ")
+        '''
+        Creates a grid and a copy for visualization. Rows and cols integers 
+        and are the dimensions.
+        '''
         self.grid = []  # Reset grid
         for i in range(rows):
             self.grid.append([])
@@ -50,12 +53,18 @@ class Planet():
         self.visualize_grid = copy.deepcopy(self.grid)  # Create a visual grid for display
         return self.grid, self.visualize_grid
     def visual_grid(self):
-        
+        '''
+        Uses the tabulate library to print the grid in a readable format.
+        '''
         print(tabulate.tabulate(self.visualize_grid, tablefmt="rounded_grid"))
         if len(self.visualize_grid) == 0:
             print("Looks like the code for creating the grid is not working properly.")
     
     def update_player_on_grid(self, pl_x, pl_y):
+        '''
+        Refreshes the grid to show the player's position.
+        pl_x and pl_y are the player's coordinates on the grid.
+        '''
     # Clear grid
         for y in range(len(self.visualize_grid)):
             for x in range(len(self.visualize_grid[0])):

@@ -1,6 +1,6 @@
 Data = {
     "Name": None,
-    "Currency": 0,
+    "Currency": 1000000,
     "Health": 100,
 
     # Player Planets
@@ -13,6 +13,7 @@ Data = {
         "Pickaxes": ['Wooden Pickaxe'],
         "Drills": [],  # Fixed spelling from "Drils"
         "Weapons": [],
+        "Medi-Tools": [],
         "Ores": {
             # earth
             "Blank Ore": {

@@ -51,6 +51,16 @@ Tools = {
             "Buy Price": 300,
             "Description": "A futuristic weapon with high damage output."
         }
+    },
+    "Medi-Tools": {
+        "Medkit": {
+            "Buy Price": 150,
+            "Description": "A futuristic medkit, used to quickly patch up damage.",
+        },
+        "Bandage": {
+            "Buy Price": 50,
+            "Description": "A small bandage used to heal small cuts",
+        }
     }
 }
 

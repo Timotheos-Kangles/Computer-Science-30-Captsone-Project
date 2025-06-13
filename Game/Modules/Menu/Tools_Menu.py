@@ -21,6 +21,11 @@ import Game.Controllers.Player_Controller as PlayerController
 
     
 def tool_shop_menu(Planet, Menu, items, player):
+    '''
+    Handles the buying of tools. Planet is the name of the planet,
+    Menu is the name of the menu, items is a dictionary of items available for purchase,
+    and player is the player object.
+    '''
     print(f"Welcome to the {Planet} {Menu} Shop!")
     print("Here are the available tools:")
     print(UtilVars.spacer) 
@@ -70,7 +75,29 @@ def purchase_tool(tool, price, player):
     if player.currency >= price:
         PlayerController.currency_controller("remove", price, player)
         PlayerController.inventory_controller("add", tool, player)
-        print(f"You have purchased {tool} for {price} money. You now have {player.currency} left.")
+
+        if tool in list(EarthData.Tools["Medi-Tools"].keys()) or tool \
+            in list(MarsData.Tools["Medi-Tools"].keys()):
+            if player.health<100:
+                if tool == "Medkit":
+                    player.health+=20
+
+                    if player.health>100:
+                        player.health=100
+                    print(f"Your health is now {player.health}")
+                elif tool == "Bandage":
+                    player.health+=10
+
+                    if player.health>100:
+                        player.health=100
+                    print(f"Your health is now {player.health}")
+            else:
+                print("Your health is already full.")
+                PlayerController.currency_controller("add", price, player)
+        else:
+            print(f"You have purchased {tool} for {price} money."
+                 +f" You now have {player.currency} left.")
     elif player.currency < price:
         print("You do not have enough money to purchase this tool.")
         print(f"You need {price - player.currency} more money.")
+#------------------------------------------------------------------------------

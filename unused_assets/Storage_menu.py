@@ -1,3 +1,4 @@
+
 storage_shop_options = {
     'Earth': {
         'small_minecart': {

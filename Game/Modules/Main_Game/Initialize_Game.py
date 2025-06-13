@@ -48,9 +48,11 @@ def Game_Menu(game_player):
         # Conditional Statements
         if choice == 1:
             print("Starting Game...")
-            MenuController.fetch_menu("Planet Menu", game_player, game_player.planet)
+            MenuController.fetch_menu("Planet Menu", game_player, \
+                                      game_player.planet)
         elif choice == 2:
-            MenuController.fetch_menu("Planet Selection", game_player, game_player.planet)
+            MenuController.fetch_menu("Planet Selection", game_player, \
+                                      game_player.planet)
         elif choice == 3:
             MenuController.fetch_menu("Shop", game_player, game_player.planet)
         elif choice == 3:
@@ -69,4 +71,4 @@ if __name__ == "__main__":
         Game_Menu(player)
         #Util_Functions.debug_player_data(player)
             
-
+#------------------------------------------------------------------------------
