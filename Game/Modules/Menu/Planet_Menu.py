@@ -10,7 +10,7 @@ import Game.Utils.Util_Variables as UtilVars
  
 # Import Menu Modules
 import Game.Modules.Menu.Tools_Menu as ToolShop
-import Game.Archive.Weapons_Menu as WeaponShop
+import Game.Modules.Menu.Weapons_Menu as WeaponShop
 import Game.Modules.Menu.Furnace_Menu as FurnaceMenu
 import Game.Modules.Menu.Shop_Menu as ShopMenu
 import Game.Modules.Menu.Sell_Menu as Sell_Menu
