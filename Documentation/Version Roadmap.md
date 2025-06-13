@@ -15,7 +15,14 @@
 
   ## Version 3
  - Special Events 
- - Feature
+ - Feature\
+
+ ## Alpha
+ - Apply Error handling
+ - Finish Pep 8
+
+ ## Beta
+  - Balance tools, etc
  
  
 
