@@ -16,7 +16,7 @@ Data = {
         "Medi-Tools": [],
         "Ores": {
             # earth
-            "Blank Ore": {
+            "Iron Ore": {
                 "Amount": 0,
             },
             "Copper Ore": {
@@ -34,6 +34,18 @@ Data = {
             "Martian Ore": {
                 "Amount": 0,
             },
+
+            # Moon
+            "Moon Ore": {
+                "Amount": 0,
+            },
+            "Pyrite Ore": {
+                "Amount": 0,
+            },
+            "Aluminum Ore": {
+                "Amount": 0,
+            },
+
         },
         "Bars": {
             # earth
@@ -41,9 +53,9 @@ Data = {
                 "Amount": 0,
                 "Value": 10
             },
-            "Blank Bar": {
+            "Iron Bar": {
                 "Amount": 0,
-                "Value": 0
+                "Value": 5
             
             # mars
             },
@@ -59,6 +71,23 @@ Data = {
                 "Amount": 0,
                 "Value": 200
             },
+
+            # Moon
+            "Moon Bar": {
+                "Amount": 0,
+                "Value":15
+            },
+            "Pyrite Bar": {
+                "Amount": 0,
+                "Value": 75
+            },
+            "Aluminum Bar": {
+                "Amount": 0,
+                "Value": 50
+            },
+
+            #Moon
+
 
 
         }

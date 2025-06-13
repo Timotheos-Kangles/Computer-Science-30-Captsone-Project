@@ -31,7 +31,7 @@ def planet_selection(game_player):
             game_player.planet = selected_planet
             print(Player.Data["Current Planet"])
             return selected_planet
-        elif choice == 2 and game_player.currency > 500:
+        elif choice == 2 and game_player.currency > 0:
             selected_planet = Player.Data["Unlocked Planets"][choice - 1]
             print(f"Traveling to {selected_planet}...")
             Player.Data["Current Planet"] = selected_planet

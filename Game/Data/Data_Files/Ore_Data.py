@@ -1,4 +1,6 @@
 dict_ore_data = {
+
+    # Earth
     "Copper Ore": {
         "Value": 5,
         "Smelting Time": 5,  # Time in seconds to smelt
@@ -6,6 +8,15 @@ dict_ore_data = {
         "Smelting Yield": {
             "Copper Bar": 1  
         },
+    },
+    "Iron Ore": {
+        "Value": 3,
+        "Smelting Time": 5,  # Time in seconds to smelt
+        "Smelting Ratio": 1,  # Number of ore needed for 1 bar
+        "Smelting Yield": {
+            "Iron Bar": 1  
+        },
+    
     },
     "Titanium Ore": {
         "Value": 0,
@@ -15,6 +26,8 @@ dict_ore_data = {
             "Titanium Bar": 1
         }
     },
+
+    # Mars
     "Niobium Ore": {
         "Value": 0,
         "Smelting Time": 15,
@@ -32,5 +45,29 @@ dict_ore_data = {
         }
     },
 
+    #Moon
+    "Moon Ore": {
+        "Value": 10,
+        "Smelting Time": 5,  # Time in seconds to smelt
+        "Smelting Ratio": 1,  # Number of ore needed for 1 bar
+        "Smelting Yield": {
+            "Moon Bar": 1  
+        },
+    },
+    "Aluminum Ore": {
+        "Value": 15,
+        "Smelting Time": 5,  # Time in seconds to smelt
+        "Smelting Ratio": 1,  # Number of ore needed for 1 bar
+        "Smelting Yield": {
+            "Aluminum Bar": 1  
+        },
+    },
+    "Pyrite Ore": {
+        "Value": 30,
+        "Smelting Time": 5,  # Time in seconds to smelt
+        "Smelting Ratio": 2,  # Number of ore needed for 1 bar
+        "Smelting Yield": {
+            "Pyrite Bar": 1  
+        },
+    }
 }
-
