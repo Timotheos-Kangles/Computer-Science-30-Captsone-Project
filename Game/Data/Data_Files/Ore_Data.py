@@ -45,7 +45,7 @@ dict_ore_data = {
     "Pyrite Ore": {
         "Value": 40,
         "Smelting Time": 10,
-        "Smelting Ratio": 3,
+        "Smelting Ratio": 2,
         "Smelting Yield": {
             "Pyrite Bar": 1
         }
