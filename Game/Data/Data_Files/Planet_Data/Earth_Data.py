@@ -42,7 +42,7 @@ Tools = {
         "Advanced Drill": {
             "Buy Price": 1250,
             "Description": "An advanced drill that cuts through rock efficiently.",
-            "Yield": 20
+            "Yield": 35
         }
 
     },

@@ -48,7 +48,7 @@ def tool_shop_menu(Planet, Menu, items, player):
             print(f"- Description: {tool_data['Description']}")
             print(UtilVars.spacer)
             
-            confirm = input("Would you like to buy this tool? (y/n): ").lower()
+            confirm = input(f"Would you like to buy this tool? You have {player.currency} money. (y/n): ").lower()
             if confirm == 'y':
                 purchase_tool(selected_tool, tool_data['Buy Price'], player)
             else:
@@ -81,13 +81,13 @@ def purchase_tool(tool, price, player):
                 or tool in list(MoonData.Tools["Medi-Tools"].keys()):
             if player.health<100:
                 if tool == "Medkit":
-                    player.health+=20
+                    player.health+=50
 
                     if player.health>100:
                         player.health=100
                     print(f"Your health is now {player.health}")
                 elif tool == "Bandage":
-                    player.health+=10
+                    player.health+=20
 
                     if player.health>100:
                         player.health=100

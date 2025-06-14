@@ -1,6 +1,6 @@
 Data = {
     "Name": None,
-    "Currency": 0,
+    "Currency": 1000000000,
     "Health": 100,
 
     # Player Planets
@@ -52,6 +52,10 @@ Data = {
             "Copper Bar": {
                 "Amount": 0,
                 "Value": 10
+            },
+            "Iron Bar": {
+                "Amount": 0,
+                "Value": 5
             },
             # mars
             "Titanium Bar": {
