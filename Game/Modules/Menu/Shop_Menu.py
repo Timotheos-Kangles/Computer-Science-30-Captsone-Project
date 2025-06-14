@@ -18,6 +18,7 @@ import Game.Modules.Menu.Weapons_Menu as WeaponShop
 # Import Data Files
 import Game.Data.Data_Files.Planet_Data.Earth_Data as EarthData
 import Game.Data.Data_Files.Planet_Data.Mars_Data as MarsData
+import Game.Data.Data_Files.Planet_Data.Moon_Data as MoonData
 
 shop_menu_options = {
     1: 'Buy Pickaxes', # Pickaxe, Drill
@@ -38,7 +39,7 @@ def shop_menu(planet, player):#, planet_tools, planet_weapons):
         for key, option in shop_menu_options.items():
             print(f'{key} | {option}')
 
-        choice = (input("What shop would you like to open?: "))
+        choice = (input("Choose a shop to open or type 'back': "))
         print(UtilVars.spacer)
         
         if type(choice) == str and not choice.isnumeric():
@@ -53,16 +54,22 @@ def shop_menu(planet, player):#, planet_tools, planet_weapons):
                     ToolShop.tool_shop_menu("Earth", "Pickaxe", EarthData.Tools["Pickaxes"], player)
                 elif planet == "Mars":
                     ToolShop.tool_shop_menu("Mars", "Pickaxe", MarsData.Tools["Pickaxes"], player)
+                elif planet == "Moon":
+                    ToolShop.tool_shop_menu("Moon", "Pickaxe", MoonData.Tools["Pickaxes"], player)
             elif choice == 2:
                 if planet == "Earth":
                     ToolShop.tool_shop_menu("Earth", "Drill", EarthData.Tools["Drills"], player)
                 elif planet == "Mars":
                     ToolShop.tool_shop_menu("Mars", "Drill", MarsData.Tools["Drills"], player)
+                elif planet == "Moon":
+                    ToolShop.tool_shop_menu("Moon", "Drill", MoonData.Tools["Drills"], player)
             elif choice == 3:
                 if planet == "Earth":
                     ToolShop.tool_shop_menu(planet, "Weapons", EarthData.Tools["Weapons"], player)
                 elif planet == "Mars":
                     ToolShop.tool_shop_menu(planet, "Weapons", MarsData.Tools["Weapons"], player)
+                elif planet == "Moon":
+                    ToolShop.tool_shop_menu(planet, "Weapons", MoonData.Tools["Weapons"], player)
             elif choice == 4:
                 ToolShop.tool_shop_menu(planet, "Medi", EarthData.Tools["Medi-Tools"], player)
             elif choice == 'back':

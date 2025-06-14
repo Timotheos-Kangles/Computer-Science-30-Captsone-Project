@@ -8,6 +8,7 @@ sys.path.append(str(root_dir))
 import Game.Data.Data_Files.Player_Data as Player
 import Game.Data.Data_Files.Planet_Data.Earth_Data as Earth_Data
 import Game.Data.Data_Files.Planet_Data.Mars_Data as Mars_Data
+import Game.Data.Data_Files.Planet_Data.Moon_Data as Moon_Data
 
 # Import Utilities
 import Game.Utils.Util_Variables as UtilVars
@@ -35,5 +36,7 @@ def fetch_planet_data(planet):
         return Earth_Data
     elif planet == 'Mars':
         return Mars_Data
+    elif planet == 'Moon':
+        return Moon_Data
 
 

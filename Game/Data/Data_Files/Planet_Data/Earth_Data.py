@@ -3,9 +3,9 @@
 import Game.Utils.Util_Functions
 
 Ores = {
-    "Blank Ore": {
+    "Iron Ore": {
         "Sell Price": 0,
-        "Rarity": 5,  # 1-10
+        "Rarity": 8,  # 1-10
         "Description": "A blank ore that can be used to create various items."
     },
     "Copper Ore": {
@@ -19,25 +19,30 @@ Tools = {
     "Pickaxes": {
         "Wooden Pickaxe": {
             "Buy Price": 10,
-            "Description": "A basic wooden pickaxe used for mining soft materials."
+            "Description": "A basic wooden pickaxe used for mining soft materials.",
+            "Yield": 1
         },
         "Iron Pickaxe": {
             "Buy Price": 25,
-            "Description": "A sturdy pickaxe capable of mining stronger materials."
+            "Description": "A sturdy pickaxe capable of mining stronger materials.",
+            "Yield": 2
         },
         "Golden Pickaxe": {
             "Buy Price": 35,
-            "Description": "A golden pickaxe, shining brightly."
+            "Description": "A golden pickaxe, shining brightly.",
+            "Yield": 3
         }
     },
     "Drills": {
         "Basic Drill": {
-            "Buy Price": 100,
-            "Description": "A powered drill for faster mining."
+            "Buy Price": 400,
+            "Description": "A rusty old drill found in some random junkyard.",
+            "Yield": 10
         },
         "Advanced Drill": {
-            "Buy Price": 250,
-            "Description": "An advanced drill that cuts through rock efficiently."
+            "Buy Price": 1250,
+            "Description": "An advanced drill that cuts through rock efficiently.",
+            "Yield": 20
         }
 
     },

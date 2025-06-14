@@ -67,7 +67,7 @@ def furnace_menu(game_player):
         for index, key in enumerate(list(game_player.inventory['Ores'].keys())):
             print(f"{index+1} | {key}")
         
-        choice = (input("What option would you like to pick?: "))
+        choice = (input("Choose an option or type 'back': "))
         if type(choice) == str and not choice.isnumeric():
             if choice == 'back':
                 break

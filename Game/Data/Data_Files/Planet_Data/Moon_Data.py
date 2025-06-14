@@ -1,54 +1,50 @@
 Ores = {
-    "Blank Ore": {
+    "Moon Ore": {
         "Sell Price": 0,
-        "Rarity": 0,  # 1-5
+        "Rarity": 10,  # 1-5
         "Description": "A blank ore that can be used to create various items."
     },
-    "Titanium Ore": {
+    "Pyrite Ore": {
         "Sell Price": 40,
-        "Rarity": 6,  # 1-5
+        "Rarity": 5,  # 1-5
         "Description": "A blank ore that can be used to create various items."
     },
-    "Niobium Ore": {
+    "Aluminum Ore": {
         "Sell Price": 100,
         "Rarity": 3,  # 1-5
-        "Description": "A blank ore that can be used to create various items."
-    },
-    "Martian Ore": {
-        "Sell Price": 100,
-        "Rarity": 2,  # 1-5
         "Description": "A blank ore that can be used to create various items."
     },
 }
 
 Tools = {
     "Pickaxes": {
-        "New Mars Pickaxe": {
-            "Buy Price": 10,
+        "Basic Moon Pickaxe": {
+            "Buy Price": 0,
             "Description": "A basic wooden pickaxe used for mining soft materials.",
             "Yield": 1
         },
-        "Mars Pickaxe": {
-            "Buy Price": 50,
-            "Description": "A sturdy pickaxe capable of mining stronger materials.",
-            "Yield": 2
-        }
+        "Advanced Moon Pickaxe": {
+            "Buy Price": 500,
+            "Description": "A basic wooden pickaxe used for mining soft materials.",
+            "Yield": 15
+        },
     },
     "Drills": {
-        "Super Basic Mars Drill": {
+        "Basic Moon Drill": {
             "Buy Price": 0,
-            "Description": "A pretty rusty, beat-up drill that hardly works",
+            "Description": "A drill found on the moon from the Apollo 11 mission. Very rusty and beat-up.",
             "Yield": 1
         },
-        "Basic Mars Drill": {
-            "Buy Price": 75,
+
+        "Super Moon Drill": {
+            "Buy Price": 3000,
             "Description": "A powered drill for faster mining.",
-            "Yield": 7
+            "Yield": 50
         },
-        "Advanced Mars Drill": {
-            "Buy Price": 150,
+        "Super Advanced Moon Drill": {
+            "Buy Price": 10000,
             "Description": "An advanced drill that cuts through rock efficiently.",
-            "Yield": 15
+            "Yield": 150
         }
     },
     "Weapons": {

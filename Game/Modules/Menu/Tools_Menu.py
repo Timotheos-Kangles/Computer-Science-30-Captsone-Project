@@ -11,7 +11,7 @@ import Game.Utils.Util_Variables as UtilVars
 import Game.Data.Data_Files.Player_Data as Player
 import Game.Data.Data_Files.Planet_Data.Earth_Data as EarthData
 import Game.Data.Data_Files.Planet_Data.Mars_Data as MarsData
-
+import Game.Data.Data_Files.Planet_Data.Moon_Data as MoonData
 # Import Controllers
 import Game.Controllers.Player_Controller as PlayerController
 
@@ -36,7 +36,7 @@ def tool_shop_menu(Planet, Menu, items, player):
     print(UtilVars.spacer)
     
     try:
-        choice = int(input("Select a tool (1-" + str(len(items)) + "): "))
+        choice = int(input("Select a tool (1-" + str(len(items)) + "): or type 'back' to return: "))
         if choice in range(1, len(items) + 1):
             selected_tool = list(items.keys())[choice - 1]
             tool_data = items[selected_tool]
@@ -77,7 +77,8 @@ def purchase_tool(tool, price, player):
         PlayerController.inventory_controller("add", tool, player)
 
         if tool in list(EarthData.Tools["Medi-Tools"].keys()) or tool \
-            in list(MarsData.Tools["Medi-Tools"].keys()):
+            in list(MarsData.Tools["Medi-Tools"].keys()) \
+                or tool in list(MoonData.Tools["Medi-Tools"].keys()):
             if player.health<100:
                 if tool == "Medkit":
                     player.health+=20

@@ -97,20 +97,41 @@ class Player_obj():
 
                 # implement price of pickaxe into yield
 
+            # handle the case where the player has no pickaxes or drills from the specific planet
+            if self.inventory['Pickaxes'][-1] not in list(player_planet_data.Tools["Pickaxes"].keys()):
+                if len(self.inventory['Drills']) == 0:
+                    print(f"DEBUG: length of drills = {len(self.inventory['Drills'])}")
+                    print("You don't have any pickaxes or drills from this planet! You have been given a basic pickaxe to mine with.")
+                    self.inventory['Pickaxes'][-1] = list(player_planet_data.Tools["Pickaxes"].keys())[0]
+                elif self.inventory['Drills'][-1] not in player_planet_data.Tools["Drills"].keys():
+                    # Has drills, but not compatible
+                    print("Your drill is not compatible with this planet! You have been given a basic pickaxe to mine with.")
+                    self.inventory['Pickaxes'][-1] = list(player_planet_data.Tools["Pickaxes"].keys())[0]
+
+            
             if len(self.inventory['Pickaxes']) != 0 or len(self.inventory['Drills']) != 0:
-                #print('The player has a pickaxe or a drill. we can mine.')
+           
                 if len(self.inventory["Drills"]) == 0: # then the player has no drills so we will look at the latest purchased pickaxe
-                    if self.inventory["Pickaxes"][-1] == "Wooden Pickaxe":                # at the end of the list (index -1)
+                    '''
+                    if self.inventory["Pickaxes"][-1] == "Wooden Pickaxe":                
                         mined_amount = 1
                     elif self.inventory["Pickaxes"][-1] == "Iron Pickaxe":
                         mined_amount = 2
                     elif self.inventory["Pickaxes"][-1] == "Golden Pickaxe":
                         mined_amount = 3
+                    ''' # This is commented out because we are using the yield from the planet data file instead. Far more efficient.
+
+                    mined_amount = player_planet_data.Tools["Pickaxes"][self.inventory["Pickaxes"][-1]]['Yield']
                 else:
+
+                    ''' 
                     if self.inventory["Drills"][-1] == "Basic Drill":
                         mined_amount = 10
                     elif self.inventory["Drills"][-1] == "Advanced Drill":
                         mined_amount = 20
+                    '''
+
+                    mined_amount = player_planet_data.Tools["Drills"][self.inventory["Drills"][-1]]['Yield']
 
                 # add to inventory
                 #print(f"DEBUG: mined_ore = {mined_ore}, mined_amount = {mined_amount}")
