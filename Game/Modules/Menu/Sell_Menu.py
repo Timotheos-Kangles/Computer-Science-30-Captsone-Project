@@ -19,13 +19,13 @@ def sell_ore(game_player):
     '''
     Handles the selling of bars to the game so the player can get money.
     '''
-    print("Pick a bar to sell or type 'back' to return: ")
+    print("Pick a bar to sell:")
 
     while True:
         for index, item in enumerate(list(game_player.inventory["Bars"].keys())):
             print(f"{index+1} | {item}")
         
-        choice = (input("Choice: "))
+        choice = (input("Choice or 'back': "))
 
         if type(choice) == str and not choice.isnumeric():
             if choice == 'back':

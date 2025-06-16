@@ -1,5 +1,7 @@
 import Game.Data.Data_Files.Player_Data as Player
 import Game.Data.Data_Files.Planet_Data.Earth_Data as Earth_Data
+import Game.Data.Data_Files.Planet_Data.Mars_Data as Mars_Data
+import Game.Data.Data_Files.Planet_Data.Moon_Data as Moon_Data
 #from Game.Modules.Main_Game.Initialize_Game import player
 
 
@@ -26,6 +28,13 @@ def inventory_controller(action, item, player):
         for i in Earth_Data.Tools.keys():
             if item in Earth_Data.Tools[i]:
                 player.inventory[i].append(item)
+        for i in Mars_Data.Tools.keys():
+            if item in Mars_Data.Tools[i]:
+                player.inventory[i].append(item)
+        for i in Moon_Data.Tools.keys():
+            if item in Moon_Data.Tools[i]:
+                player.inventory[i].append(item)
+        
     elif action == "remove":
         Player.Data["Inventory"].remove(item)
     else:
@@ -63,7 +72,7 @@ def fetch_planet_obj(planet):
         from Game.Modules.Main_Game.game_objects import mars_obj
         print(f"DEBUG: Returning mars_obj: {mars_obj}")
         return mars_obj
-    if planet == "Moon":
+    elif planet == "Moon":
         from Game.Modules.Main_Game.game_objects import moon_obj
         return moon_obj
     else:

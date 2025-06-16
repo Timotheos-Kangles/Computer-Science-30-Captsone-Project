@@ -1,9 +1,4 @@
 Ores = {
-    "Blank Ore": {
-        "Sell Price": 0,
-        "Rarity": 0,  # 1-5
-        "Description": "A blank ore that can be used to create various items."
-    },
     "Titanium Ore": {
         "Sell Price": 40,
         "Rarity": 6,  # 1-5
@@ -25,21 +20,30 @@ Tools = {
     "Pickaxes": {
         "New Mars Pickaxe": {
             "Buy Price": 10,
-            "Description": "A basic wooden pickaxe used for mining soft materials."
+            "Description": "A basic Mars pickaxe used for mining soft materials.",
+            "Yield": 1
         },
         "Mars Pickaxe": {
             "Buy Price": 50,
-            "Description": "A sturdy pickaxe capable of mining stronger materials."
+            "Description": "A sturdy pickaxe capable of mining stronger materials.",
+            "Yield": 2
         }
     },
     "Drills": {
-        "Basic Drill": {
-            "Buy Price": 100,
-            "Description": "A powered drill for faster mining."
+        "Super Basic Mars Drill": {
+            "Buy Price": 0,
+            "Description": "A pretty rusty, beat-up drill that hardly works",
+            "Yield": 1
         },
-        "Advanced Drill": {
-            "Buy Price": 250,
-            "Description": "An advanced drill that cuts through rock efficiently."
+        "Basic Mars Drill": {
+            "Buy Price": 75,
+            "Description": "A powered drill for faster mining.",
+            "Yield": 7
+        },
+        "Advanced Mars Drill": {
+            "Buy Price": 150,
+            "Description": "An advanced drill that cuts through rock efficiently.",
+            "Yield": 15
         }
     },
     "Weapons": {

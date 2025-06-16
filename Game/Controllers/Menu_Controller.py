@@ -9,6 +9,7 @@ sys.path.append(str(root_dir))
 import Game.Data.Data_Files.Player_Data as Player
 import Game.Data.Data_Files.Planet_Data.Earth_Data as EarthData
 import Game.Data.Data_Files.Planet_Data.Mars_Data as MarsData
+import Game.Data.Data_Files.Planet_Data.Moon_Data as MoonData
 
 # Import Menu Modules
 import Game.Modules.Menu.Shop_Menu as ShopMenu
@@ -38,6 +39,13 @@ def fetch_menu(Menu, game_player, Planet): #=None):
                 "Drills": MarsData.Tools["Drills"]
             }
             mars_weapons = MarsData.Tools["Weapons"]
+            ShopMenu.shop_menu(Planet, game_player)   
+        elif Planet == "Moon":
+            moon_tools = {
+                "Pickaxes": MoonData.Tools["Pickaxes"],
+                "Drills": MoonData.Tools["Drills"]
+            }
+            mars_weapons = MoonData.Tools["Weapons"]
             ShopMenu.shop_menu(Planet, game_player)#"Mars", mars_tools, mars_weapons)
     
     if Menu == "Furnace":

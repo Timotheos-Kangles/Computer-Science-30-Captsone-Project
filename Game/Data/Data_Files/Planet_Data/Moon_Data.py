@@ -4,12 +4,12 @@ Ores = {
         "Rarity": 10,  # 1-5
         "Description": "A blank ore that can be used to create various items."
     },
-    "Aluminum Ore": {
+    "Pyrite Ore": {
         "Sell Price": 40,
-        "Rarity": 7,  # 1-5
+        "Rarity": 5,  # 1-5
         "Description": "A blank ore that can be used to create various items."
     },
-    "Pyrite Ore": {
+    "Aluminum Ore": {
         "Sell Price": 100,
         "Rarity": 3,  # 1-5
         "Description": "A blank ore that can be used to create various items."
@@ -18,19 +18,33 @@ Ores = {
 
 Tools = {
     "Pickaxes": {
-        "Moon Pickaxe": {
-            "Buy Price": 10,
-            "Description": "A basic moon pickaxe used for mining soft materials."
+        "Basic Moon Pickaxe": {
+            "Buy Price": 0,
+            "Description": "A basic wooden pickaxe used for mining soft materials.",
+            "Yield": 1
+        },
+        "Advanced Moon Pickaxe": {
+            "Buy Price": 500,
+            "Description": "A basic wooden pickaxe used for mining soft materials.",
+            "Yield": 15
         },
     },
     "Drills": {
-        "Moon Drill": {
-            "Buy Price": 100,
-            "Description": "A powered drill for faster mining."
+        "Basic Moon Drill": {
+            "Buy Price": 0,
+            "Description": "A drill found on the moon from the Apollo 11 mission. Very rusty and beat-up.",
+            "Yield": 1
         },
-        "Advanced Moon Drill": {
-            "Buy Price": 250,
-            "Description": "An advanced drill that cuts through rock efficiently."
+
+        "Super Moon Drill": {
+            "Buy Price": 3000,
+            "Description": "A powered drill for faster mining.",
+            "Yield": 50
+        },
+        "Super Advanced Moon Drill": {
+            "Buy Price": 10000,
+            "Description": "An advanced drill that cuts through rock efficiently.",
+            "Yield": 150
         }
     },
     "Weapons": {

@@ -1,6 +1,6 @@
 Data = {
     "Name": None,
-    "Currency": 1000000,
+    "Currency": 1000000000,
     "Health": 100,
 
     # Player Planets
@@ -10,18 +10,19 @@ Data = {
     # Player Inventory
     "Inventory": {
         
-        "Pickaxes": ['Wooden Pickaxe'],
+        "Pickaxes": [None],
         "Drills": [],  # Fixed spelling from "Drils"
         "Weapons": [],
         "Medi-Tools": [],
         "Ores": {
             # earth
-            "Iron Ore": {
-                "Amount": 0,
-            },
             "Copper Ore": {
                 "Amount": 0,
             },
+            "Iron Ore": {
+                "Amount": 0,
+            },
+
 
             # mars
 
@@ -34,17 +35,16 @@ Data = {
             "Martian Ore": {
                 "Amount": 0,
             },
-
-            # Moon
-            "Moon Ore": {
-                "Amount": 0,
-            },
+            # moon
             "Pyrite Ore": {
                 "Amount": 0,
             },
             "Aluminum Ore": {
                 "Amount": 0,
             },
+            "Moon Ore": {
+                "Amount": 0,
+            }
 
         },
         "Bars": {
@@ -56,9 +56,8 @@ Data = {
             "Iron Bar": {
                 "Amount": 0,
                 "Value": 5
-            
-            # mars
             },
+            # mars
             "Titanium Bar": {
                 "Amount": 0,
                 "Value":50
@@ -71,24 +70,19 @@ Data = {
                 "Amount": 0,
                 "Value": 200
             },
-
-            # Moon
-            "Moon Bar": {
-                "Amount": 0,
-                "Value":15
-            },
+            # moon
             "Pyrite Bar": {
                 "Amount": 0,
-                "Value": 75
+                "Value": 40
             },
             "Aluminum Bar": {
                 "Amount": 0,
-                "Value": 50
+                "Value": 100
             },
-
-            #Moon
-
-
+            "Moon Bar": {
+                "Amount": 0,
+                "Value": 0
+            } 
 
         }
     }
