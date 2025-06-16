@@ -100,18 +100,17 @@ class Player_obj():
             # handle the case where the player has no pickaxes or drills from the specific planet
             if self.inventory['Pickaxes'][-1] not in list(player_planet_data.Tools["Pickaxes"].keys()):
                 if len(self.inventory['Drills']) == 0:
-                    print(f"DEBUG: length of drills = {len(self.inventory['Drills'])}")
                     print("You don't have any pickaxes or drills from this planet! You have been given a basic pickaxe to mine with.")
                     self.inventory['Pickaxes'][-1] = list(player_planet_data.Tools["Pickaxes"].keys())[0]
                 elif self.inventory['Drills'][-1] not in player_planet_data.Tools["Drills"].keys():
                     # Has drills, but not compatible
-                    print("Your drill is not compatible with this planet! You have been given a basic pickaxe to mine with.")
-                    self.inventory['Pickaxes'][-1] = list(player_planet_data.Tools["Pickaxes"].keys())[0]
-
+                    print("Your drill is not compatible with this planet! You have been given a basic drill to mine with.")
+                    self.inventory['Drills'][-1] = list(player_planet_data.Tools["Drills"].keys())[0]
             
             if len(self.inventory['Pickaxes']) != 0 or len(self.inventory['Drills']) != 0:
            
                 if len(self.inventory["Drills"]) == 0: # then the player has no drills so we will look at the latest purchased pickaxe
+                    print(len(self.inventory['Drills']))
                     '''
                     if self.inventory["Pickaxes"][-1] == "Wooden Pickaxe":                
                         mined_amount = 1
@@ -130,7 +129,7 @@ class Player_obj():
                     elif self.inventory["Drills"][-1] == "Advanced Drill":
                         mined_amount = 20
                     '''
-
+                    print(len(self.inventory['Drills']))
                     mined_amount = player_planet_data.Tools["Drills"][self.inventory["Drills"][-1]]['Yield']
 
                 # add to inventory
