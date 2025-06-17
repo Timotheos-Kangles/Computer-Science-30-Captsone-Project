@@ -32,7 +32,7 @@ def planet_selection(game_player):
             game_player.planet = selected_planet
             print(Player.Data["Current Planet"])
             return selected_planet
-        elif choice == 2 and game_player.currency > 2000:
+        elif choice == 2 and game_player.currency > 500:
             game_player.pl_x, game_player.pl_y = 0, 0 
             selected_planet = Player.Data["Unlocked Planets"][choice - 1]
             print(f"Traveling to {selected_planet}...")
@@ -40,7 +40,7 @@ def planet_selection(game_player):
             game_player.planet = selected_planet
             print(Player.Data["Current Planet"])
             return selected_planet
-        elif choice == 3 and game_player.currency > 3000:
+        elif choice == 3 and game_player.currency > 1000:
             game_player.pl_x, game_player.pl_y = 0, 0 
             selected_planet = Player.Data["Unlocked Planets"][choice - 1]
             print(f"Traveling to {selected_planet}...")
@@ -49,7 +49,7 @@ def planet_selection(game_player):
             print(Player.Data["Current Planet"])
             return selected_planet            
         else:
-            print("Invalid planet selection. You need 2000 money to unlock the Moon and 3000 money to unlock Mars.")
+            print("Invalid planet selection. You need 500 money to unlock the Moon and 1000 money to unlock Mars.")
             return planet_selection(game_player)
     except ValueError:
         print("Please enter a valid number.")

@@ -1,6 +1,6 @@
 Data = {
     "Name": None,
-    "Currency": 1000000000,
+    "Currency": 0,
     "Health": 100,
 
     # Player Planets
